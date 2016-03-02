@@ -1,0 +1,58 @@
+# Main application
+web:
+  build: .
+  volumes:
+    - .:/app
+  environment:
+    RAILS_ENV: development
+  ports:
+    - "3000:3000"
+  links:
+    - db
+    - redis
+  volumes_from:
+    - bundle_store
+
+# Database
+db:
+  image: postgres:9.5
+  environment:
+    POSTGRES_USER: user
+    POSTGRES_PASSWORD: password # required by postgres image
+  ports:
+    - "5432:5432"
+  volumes_from:
+    - db_store
+
+# Redis
+redis:
+  image: redis
+  ports:
+   - "6379:6379"
+  volumes_from:
+    - redis_store
+  #flag: appendonly yes
+
+# Data-only container for bundler data
+# 1cbcbba76923573e8cc1d50b9d516b14b09ffa6d9679e80c057e49548da7126b
+bundle_store:
+  image: cogniteev/echo
+  command: echo 'Data Container for Bundler'
+  volumes:
+    - /bundle
+
+# Data-only container for database data
+# 12d1599c09d98516e8a2f06ca03904287ccb22ea72db5f648a4aa3ff14fba31a
+db_store:
+  image: cogniteev/echo
+  command: echo 'Data Container for PostgreSQL'
+  volumes:
+    - /var/lib/postgresql/data
+
+# Data-only container for redis data
+# 4fa3da2f8ca0126c461dc8fce7756b7fef41e3df8f2f7f7ab5afbf8cde62ce0b
+redis_store:
+  image: cogniteev/echo
+  command: echo 'Data Container for Redis'
+  volumes:
+    - /data
