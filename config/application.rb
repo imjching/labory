@@ -22,5 +22,8 @@ module Labory
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Enable deflate / gzip compression of controller-generated responses
+    config.middleware.insert(0, Rack::Deflater)
   end
 end
