@@ -10,24 +10,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Set up working directory
 RUN mkdir /app
 
-WORKDIR /tmp
-# Copy Gemfiles
-COPY Gemfile Gemfile
-COPY Gemfile.lock Gemfile.lock
-
 # Set up bundle environment
-ENV BUNDLE_GEMFILE=/tmp/Gemfile
-ENV BUNDLE_JOBS=2
-ENV BUNDLE_PATH=/bundle
-
-# Install gems
-RUN bundle install
+ENV BUNDLE_JOBS=3 BUNDLE_GEMFILE=/app/Gemfile
 
 WORKDIR /app
-
-# Start the server
-CMD ["rails", "server", "-b", "0.0.0.0"]
-
-# docker-compose run --rm web bundle install
-# docker-compose run --rm web rake db:create
-# docker-compose run --rm web rake db:migrate
