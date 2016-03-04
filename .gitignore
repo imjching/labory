@@ -10,6 +10,12 @@
 # Ignore ruby-version config.
 /.ruby-version
 
+# Ignore .env files.
+/.env
+/.env.production
+/.env.development
+/.env.test
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep

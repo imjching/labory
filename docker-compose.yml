@@ -5,9 +5,8 @@ web:
   command: bash ./start.sh
   volumes:
     - .:/app
-  environment:
-    RAILS_ENV: development
-    VM_HOST_PATH: /Users/imjching/Desktop/labory
+  env_file:
+    - .env.development
   ports:
     - "80:3000"
   links:
