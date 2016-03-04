@@ -7,6 +7,7 @@ web:
     - .:/app
   environment:
     RAILS_ENV: development
+    VM_HOST_PATH: /Users/imjching/Desktop/labory
   ports:
     - "80:3000"
   links:
