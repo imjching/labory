@@ -25,5 +25,8 @@ module Labory
 
     # Enable deflate / gzip compression of controller-generated responses
     config.middleware.insert(0, Rack::Deflater)
+
+    # Enable sidekiq with ActiveJob
+    config.active_job.queue_adapter = :sidekiq
   end
 end

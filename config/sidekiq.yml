@@ -1,0 +1,14 @@
+#
+# Configuration file for Sidekiq.
+# Options here can still be overridden by cmd line args.
+#
+# $ bundle exec sidekiq -C config/sidekiq.yml
+
+---
+:verbose: true
+:concurrency: 25
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:queues:
+  - mailer
+  - default

@@ -46,6 +46,22 @@ mailcatcher:
     - "1080:80"
     - "25:25"
 
+# Sidekiq
+sidekiq:
+  container_name: labory.sidekiq
+  build: .
+  command: bundle exec sidekiq -C ./config/sidekiq.yml
+  volumes:
+    - .:/app
+  env_file:
+    - .env.development
+  links:
+    - db
+    - redis
+    - mailcatcher
+  volumes_from:
+    - bundle_store
+
 # Data-only container for bundler data
 # docker volume create labory.bundle_store
 bundle_store:
