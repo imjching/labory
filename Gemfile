@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Puma as the app server
 # gem 'puma'
+gem 'devise'
 gem 'redis-namespace'
 gem 'sidekiq'
 gem 'sinatra', require: nil # Required for sidekiq-webinterface
