@@ -7,13 +7,11 @@
 </p>
 
 <div class="table-list-header">
-  <div class="table-list-filters">
-    <div class="table-list-header-toggle left">
-      <h4>Labs</h4>
-    </div>
-    <div class="table-list-action right">
-      <button class="btn btn-sm btn-primary" type="button">New lab</button>
-    </div>
+  <%= link_to new_stafftools_course_lab_path(@course), class: 'table-list-action btn btn-sm btn-primary', role: 'button' do %>
+    <%= octicon('plus') %>&nbsp;&nbsp;New lab
+  <% end %>
+  <div class="table-list-header-toggle left">
+    <h4>Labs</h4>
   </div>
 </div>
 

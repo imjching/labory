@@ -1,18 +1,17 @@
-class Course < ActiveRecord::Base
+class Lab < ActiveRecord::Base
   include Sluggable
 
   default_scope { where(deleted_at: nil) }
 
-  has_many :labs, dependent: :destroy
-
-  has_and_belongs_to_many :users
+  belongs_to :course
 
   validates :title, presence: true
   validates :title, length: { maximum: 60 }
 
-  validates :slug, uniqueness: true
+  validates :body, presence: true
 
-  # todo include username in slug
+  validates :slug, uniqueness: { scope: :course_id }
+
   def slugify
     self.slug = "#{title}".parameterize
   end
