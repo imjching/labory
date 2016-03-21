@@ -1,58 +1,76 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test]
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+#ruby '2.3.0'
 gem 'rails', '4.2.5.1'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'autoprefixer-rails' # add vendor prefixes to CSS rules
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'chewy' # elasticsearch-ruby client
+gem 'coffee-rails', '~> 4.1.0' # CoffeeScript for .coffee assets and views
 
-# Use Puma as the app server
-# gem 'puma'
-gem 'devise'
-gem 'omniauth'
+gem 'draper' # decorators
+
+gem 'faraday-http-cache' # Faraday middleware that respects HTTP cache
+
+gem 'geo_pattern' # generates geometric background images from a string
+
+gem 'jbuilder' # build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jquery-rails' # Use jquery as the JavaScript library
+gem 'jquery-turbolinks' # turbolinks with jquery
+
+gem 'kaminari' # pagination
+
+gem 'local_time'
+
+gem 'octokit' # ruby toolkit for the GitHub API
+gem 'omniauth' # authentication system
 gem 'omniauth-github'
+
+gem 'peek' # profiling tool built by GitHub
+gem 'peek-dalli' # memcached
+gem 'peek-gc' # GC::Profiler
+gem 'peek-git' # git
+gem 'peek-performance_bar' # window.performance timing
+gem 'peek-pg' # postgresql
+gem 'peek-sidekiq', github: 'Soliah/peek-sidekiq', ref: '261c857578ae6dc189506a35194785a4db51e54c' # sidekiq
+gem 'pg' # Use postgresql as the database for Active Record
+gem 'puma' # web server
+
+gem 'rack-canonical-host' # Rack middleware for defining a canonical host name.
 gem 'redis-namespace'
-gem 'sidekiq'
-gem 'sinatra', require: nil # Required for sidekiq-webinterface
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'sidekiq', '~> 4.1.0' # background processing
+gem 'sinatra', require: false # for sidekiq web
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
+gem 'turbolinks' # Turbolinks makes following links in your web application faster.
+
+gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  # gem 'capistrano-rails' # Use Capistrano for deployment
+  gem 'foreman', require: false
   gem 'quiet_assets' # Suppress asset pipeline calls in logs
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'web-console', '~> 2.0' # Access an IRB console on exception pages or by using <%= console %> in views
 end
 
+group :development, :test do
+  gem 'awesome_print', require: 'ap'
+  gem 'bullet' # helps to kill N+1 queries
+  gem 'dotenv-rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'rubocop', require: false
+  gem 'scss_lint', require: false
+  gem 'spring' # Spring speeds up development by keeping your application running in the background
+end
+
+group :production do
+  gem 'dalli' # memcached
+  gem 'pinglish' # checking application health
+  gem 'puma_worker_killer' # Automatically restart Puma cluster workers based on max RAM available
+  gem 'rack-tracker' # tracking and analytics
+  gem 'rails_12factor'
+end

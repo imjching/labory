@@ -1,0 +1,14 @@
+<div class="subhead">
+  <h2 class="subhead-heading">New module</h2>
+</div>
+<p>
+  Modules function like courses. They will be used to group lab works so that they could be assigned to students in a set.
+</p>
+
+<%= form_for [:stafftools, @course] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= render partial: 'stafftools/courses/course_form_options', locals: { f: f } %>
+
+  <%= f.submit 'Create Module', class: 'btn btn-primary', id: 'course_submit', disabled: true %>
+  <%= link_to 'Cancel', stafftools_courses_path, class: 'btn', role: 'button' %>
+<% end %>

@@ -4,6 +4,8 @@ FROM ruby:2.3.0
 # Run updates for nokogiri and JS runtime
 RUN apt-get update -qq && apt-get install -y build-essential libxml2-dev libxslt1-dev nodejs
 RUN apt-get install -y postgresql-client --no-install-recommends
+RUN apt-get install -y npm && npm install bower -g
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -20,14 +20,14 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-
-development:
-  <<: *default
-  database: labory_development
   username: <%= ENV['DB_ENV_POSTGRES_USER'] %>
   password: <%= ENV['DB_ENV_POSTGRES_PASSWORD'] %>
   host: <%= ENV['DB_PORT_5432_TCP_ADDR'] %>
   port: <%= ENV['DB_PORT_5432_TCP_PORT'] %>
+
+development:
+  <<: *default
+  database: labory_development
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public

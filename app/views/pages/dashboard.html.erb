@@ -1,0 +1,53 @@
+<div class="boxed-group">
+  <a class="boxed-group-action btn btn-sm btn-primary" href="#"><%= octicon('plus') %>&nbsp;&nbsp;New module</a>
+  <h3>Modules</h3>
+
+  <!--<div class="boxed-group-inner">
+    <div class="blankslate blankslate-fixed-width">
+      <span class="mega-octicon octicon-git-commit"></span>
+      <span class="mega-octicon octicon-tag"></span>
+      <span class="mega-octicon octicon-git-branch"></span>
+      <h3>You do not have any modules yet.</h3>
+      <p>You can begin creating labs once you have at least one module.</p>
+    </div>
+  </div>-->
+
+  <div class="boxed-group-inner">
+    <ul class="boxed-group-list boxed-group-standalone">
+
+      <li class="public fork js-collab-repo" data-repo-id="38987962">
+        <a href="#leave_repo_38987962" class="btn btn-sm " rel="facebox">Leave</a>
+
+        <%= octicon('repo') %>
+        <a href="#">Introduction to Ionic Framework</a>
+        <small>8 labs</small>
+
+        <div class="fork-flag">
+          Invited by <a href="#">imjching</a>
+        </div>
+      </li>
+      <div id="leave_repo_38987962" style="display:none">
+        <h2 class="facebox-header" data-facebox-id="facebox-header">Are you sure you want to leave cs-notes/Books?</h2>
+
+        <div class="facebox-alert" data-facebox-id="facebox-description">You will lose push access.</div>
+        <ul>
+          <li>Your commits won’t be lost</li>
+          <li>You will still be able to view this repository</li>
+          <li>You can always ask <strong>cs-notes</strong> for access again</li>
+        </ul>
+
+        <form accept-charset="UTF-8" action="/account/leave_repo/38987962" class="js-leave-collaborated-repo" data-form-nonce="bc2b189e4d8d0056338f57547fc0ca88880cb8f5" data-remote="true" data-repo-id="38987962" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="qfZqCIIyidqhSrluBJUleSRUMMQ4WDbdVklzZ5mJ2P5QjJVxACVG4YqS+dByxQtTB/ad8XHkZIE6l9iLGEwjfg=="></div>
+          <button type="submit" class="btn">I understand, leave this repository</button>
+        </form>
+      </div>
+
+      <li class="simple public js-collab-repo" data-repo-id="38416663">
+        <%= octicon('repo') %>
+
+        <a href="#">Angular.js - Day 1</a>
+        <small>6 labs</small>
+      </li>
+
+    </ul>
+  </div>
+</div>

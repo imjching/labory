@@ -1,0 +1,14 @@
+<nav class="menu">
+  <span class="menu-heading"><%= octicon('shield') %>&nbsp;&nbsp;Instructor's Panel</span>
+  <%= link_to 'Modules', stafftools_courses_path, class: 'menu-item selected' %>
+  <%= link_to 'Labs', stafftools_labs_path, class: 'menu-item' %>
+  <%= link_to 'Classrooms', stafftools_classrooms_path, class: 'menu-item' %>
+</nav>
+
+<nav class="menu">
+  <span class="menu-heading"><%= octicon('code') %>&nbsp;&nbsp;Admin Tools</span>
+  <%= link_to 'Instructors', dashboard_path, class: 'menu-item' %>
+  <%= link_to 'Search', dashboard_path, class: 'menu-item' %>
+</nav>
+
+<!-- Implement soft delete, head admin can view soft delete -->

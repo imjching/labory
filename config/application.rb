@@ -26,7 +26,48 @@ module Labory
     # Enable deflate / gzip compression of controller-generated responses
     config.middleware.insert(0, Rack::Deflater)
 
-    # Enable sidekiq with ActiveJob
+    # Add bower assets to the path
+    root.join('vendor', 'assets', 'components').to_s.tap do |bower_path|
+      config.sass.load_paths << bower_path
+      config.assets.paths << bower_path
+    end
+
+    # Append directories to autoload paths
+    config.autoload_paths += Dir["#{Rails.root}/lib"]
+
+    # Precompile Fonts
+    # Compile all font types except octicons-local
+    config.assets.precompile << %r(octicons/octicons/octicons+\.(?:svg|eot|woff|ttf)$)
+
+    # Configure the generators
+    config.generators do |g|
+      g.test_framework nil
+    end
+
+    # GC Profiler for analytics
+    GC::Profiler.enable
+
+    # Use SideKiq for background jobs
     config.active_job.queue_adapter = :sidekiq
+
+    # Health checks endpoint for monitoring
+    if ENV['PINGLISH_ENABLED'] == 'true'
+      config.middleware.use Pinglish do |ping|
+        ping.check :db do
+          ActiveRecord::Base.connection.tables.size
+          'ok'
+        end
+
+        ping.check :memcached do
+          Rails.cache.dalli.checkout.alive!
+          'ok'
+        end
+
+        ping.check :redis do
+          Sidekiq.redis { |redis| redis.ping }
+          'ok'
+        end
+      end
+    end
   end
 end

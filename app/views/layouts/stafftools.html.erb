@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Labory</title>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <%= render 'shared/open_graph' %>
+  </head>
+  <body class="site stafftools <%= controller_name %> <%= action_name %>">
+    <div class="loading-indicator" style="display: none;"></div>
+
+    <%= render 'peek/bar' %>
+    <%= render 'shared/header' %>
+
+    <main>
+      <%= render 'shared/flash_messages' %>
+
+      <div class="page-content container">
+        <div class="columns">
+          <div class="one-fourth column">
+            <%= render 'stafftools/navigation' %>
+          </div>
+          <div class="three-fourths column">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <%= render 'shared/footer' %>
+
+  <!-- <div class="facebox" id="facebox" style="display:none;">
+    <div class="facebox-popup">
+      <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+      </div>
+      <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+        <svg aria-hidden="true" class="octicon octicon-x" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
+      </button>
+    </div>
+  </div>
+ -->
+<!-- <script crossorigin="anonymous" integrity="sha256-1yM+qrt1Marydfpx57yjxDyxHq4SyDWWIr0T1yUyCu4=" src="https://assets-cdn.github.com/assets/frameworks-d7233eaabb7531aaf275fa71e7bca3c43cb11eae12c8359622bd13d725320aee.js"></script>
+<script async="async" crossorigin="anonymous" integrity="sha256-8hhr4g3EL4APUAXr1OZPRhmu8A6EQigePqsD67Wnpeo=" src="https://assets-cdn.github.com/assets/github-f2186be20dc42f800f5005ebd4e64f4619aef00e8442281e3eab03ebb5a7a5ea.js"></script> -->
+
+  </body>
+</html>

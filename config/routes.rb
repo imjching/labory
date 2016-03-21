@@ -1,8 +1,42 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  mount Peek::Railtie => '/peek'
+
+  root to: 'pages#home'
+
+  get  '/login',  to: 'sessions#new',     as: 'login'
+  post '/logout', to: 'sessions#destroy', as: 'logout'
+
+  match '/auth/:provider/callback', to: 'sessions#create',  via: [:get, :post]
+  match '/auth/failure',            to: 'sessions#failure', via: [:get, :post]
+
+  get  '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+
+  namespace :stafftools do
+    root to: 'resources#index'
+
+    scope path_names: { edit: 'settings' } do
+      resources :courses, path: 'modules' do
+        resources :labs
+      end
+
+      resources :classrooms do
+        member do
+          get :invite
+        end
+      end
+    end
+
+    resources :labs, only: [:index]
+
+    # Admin-only routes
+    constraints AdminConstraint.new do
+      mount Sidekiq::Web  => '/sidekiq'
+    end
+    get '/resource_search', to: 'resources#search'
+  end
+
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

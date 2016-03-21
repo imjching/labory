@@ -11,4 +11,5 @@
 :logfile: ./log/sidekiq.log
 :queues:
   - mailer
-  - default
+  - chewy
+  - trash_can
