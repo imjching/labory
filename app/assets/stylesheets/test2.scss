@@ -1021,6 +1021,13 @@
   padding: 12px 0;
 }
 
+.table-list-action {
+  position: relative;
+  z-index: 2;
+  float: right;
+  margin: 9px 10px 0 0;
+}
+
 .table-list-filters:first-child .table-list-header-toggle:first-child {
   padding-left: 10px;
 }
@@ -2161,7 +2168,8 @@ a.commit-ref:hover {
 
 .dashboard-notice {
   position: relative;
-  padding: 15px 15px 15px 55px;
+  padding: 15px;
+  // padding: 15px 15px 15px 55px;
   margin-bottom: 20px;
   font-size: 14px;
   background-color: #fafafa;

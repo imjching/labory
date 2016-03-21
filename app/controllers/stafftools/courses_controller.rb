@@ -1,6 +1,8 @@
 module Stafftools
   class CoursesController < StafftoolsController
+
     before_action :set_resources
+    before_action :set_course, only: [:show]
 
     def index
       @courses = current_user.courses.page(params[:page])
@@ -21,11 +23,7 @@ module Stafftools
     end
 
     def show
-
     end
-
-
-
 
     def search
       #respond_to do |format|
@@ -34,6 +32,10 @@ module Stafftools
     end
 
     private
+
+    def set_course
+      @course = Course.find_by!(slug: params[:id])
+    end
 
     def set_resources
       #resource_query = params[:query].present? ? match_phrase_prefix(params[:query]) : {}
