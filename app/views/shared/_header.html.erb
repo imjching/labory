@@ -33,23 +33,26 @@
 
 <div class="header header-logged-in true" role="banner">
   <div class="container clearfix">
-    <a class="header-logo-invertocat" href="https://github.com/">
+    <!-- <a class="header-logo-invertocat" href="https://github.com/">
       <svg aria-hidden="true" class="octicon octicon-mark-github" height="28" role="img" version="1.1" viewBox="0 0 457.115 457.115" width="28">
         <%= render 'shared/svg_logo_path' %>
       </svg>
-    </a>
-    <div class="site-search  js-site-search" role="search">
+    </a> -->
+    <!-- <div class="site-search  js-site-search" role="search">
       <form accept-charset="UTF-8" action="/search" class="js-site-search-form" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
         <label class="js-chromeless-input-container form-control">
           <div class="scope-badge"></div>
           <input type="text" class="js-site-search-focus  chromeless-input" data-hotkey="s" name="q" placeholder="Search Labory" aria-label="Search GitHub" data-unscoped-placeholder="Search GitHub" data-scoped-placeholder="Search" tabindex="1" autocapitalize="off">
         </label>
       </form>
-    </div>
+    </div> -->
 
     <ul class="header-nav left" role="navigation">
       <li class="header-nav-item">
-        <a href="/pulls" class="js-selected-navigation-item header-nav-link selected">GitHub</a>
+        <a href="/dashboard" class="js-selected-navigation-item header-nav-link">Home</a>
+      </li>
+      <li class="header-nav-item">
+        <a href="/pulls" class="js-selected-navigation-item header-nav-link">GitHub</a>
       </li>
       <li class="header-nav-item">
         <a class="header-nav-link" href="https://gist.github.com/">Gist</a>
@@ -91,7 +94,7 @@
     </div>
   </li>
 
-<%#= link_to 'Sign in', login_path %>
+<%= link_to 'Sign in', login_path %>
 
   <li class="header-nav-item dropdown js-menu-container">
     <a class="header-nav-link name tooltipped tooltipped-sw js-menu-target" href="/imjching" aria-label="View profile and more" data-ga-click="Header, show menu, icon:avatar">

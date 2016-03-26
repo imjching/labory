@@ -1,7 +1,6 @@
 module Stafftools
   class CoursesController < StafftoolsController
 
-    before_action :set_resources
     before_action :set_course, only: [:show]
 
     def index
@@ -16,19 +15,14 @@ module Stafftools
       @course = Course.new(new_course_params)
 
       if @course.save
-        redirect_to [:stafftools, @course]
+        redirect_to stafftools_course_path(@course)
       else
         render :new
       end
     end
 
     def show
-    end
-
-    def search
-      #respond_to do |format|
-      #  format.html { render partial: 'stafftools/resources/search_results', locals: { resources: @resources } }
-      #end
+      @labs = @course.labs.rank(:sort_order)
     end
 
     private
@@ -37,25 +31,11 @@ module Stafftools
       @course = Course.find_by!(slug: params[:id])
     end
 
-    def set_resources
-      #resource_query = params[:query].present? ? match_phrase_prefix(params[:query]) : {}
-      #@resources     = StafftoolsIndex.query(resource_query).order(_type: :asc).page(params[:page]).per(20)
-    end
-
-    def match_phrase_prefix(query)
-      #searchable_fields = %w(github_id github_repo_id github_team_id id key login name slug title uid)
-      #{ bool: { should: searchable_fields.map { |field| { 'match_phrase_prefix' => { field => query } } } } }
-    end
-
-    private
-
     def new_course_params
       params
         .require(:course)
         .permit(:title, :description)
         .merge(users: [current_user])
     end
-
-
   end
 end

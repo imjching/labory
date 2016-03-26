@@ -4,6 +4,8 @@ class CreateLabs < ActiveRecord::Migration
       t.string :title
       t.text :body
 
+      t.belongs_to :course, index: true
+
       t.timestamps null: false
     end
   end

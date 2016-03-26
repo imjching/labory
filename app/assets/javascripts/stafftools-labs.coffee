@@ -1,6 +1,6 @@
-$('.stafftools.courses.new').ready ->
+$('.stafftools.labs.new').ready ->
   $('form').on('change keyup', ->
-    $submit_button = $('#course_submit')
+    $submit_button = $('#lab_submit')
 
     if $form_values_present()
       $submit_button.prop('disabled', false)
@@ -9,7 +9,7 @@ $('.stafftools.courses.new').ready ->
   )
 
 $form_values_present = () ->
-  $present('course_title')
+  $present('lab_title') && $present('lab_body')
 
 $present = (id) ->
   $el = $("##{id}")

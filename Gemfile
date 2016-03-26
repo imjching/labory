@@ -17,10 +17,13 @@ gem 'geo_pattern' # generates geometric background images from a string
 gem 'jbuilder' # build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'jquery-turbolinks' # turbolinks with jquery
+gem 'jquery-ui-rails' # for draggable lists
 
 gem 'kaminari' # pagination
 
 gem 'local_time'
+
+gem 'nprogress-rails' # progress bar
 
 gem 'octokit' # ruby toolkit for the GitHub API
 gem 'omniauth' # authentication system
@@ -35,9 +38,13 @@ gem 'peek-pg' # postgresql
 gem 'peek-sidekiq', github: 'Soliah/peek-sidekiq', ref: '261c857578ae6dc189506a35194785a4db51e54c' # sidekiq
 gem 'pg' # Use postgresql as the database for Active Record
 gem 'puma' # web server
+gem 'pygments.rb'
 
 gem 'rack-canonical-host' # Rack middleware for defining a canonical host name.
+gem 'ranked-model' # sortable
+gem 'redcarpet'
 gem 'redis-namespace'
+gem 'rouge'
 
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'sidekiq', '~> 4.1.0' # background processing
@@ -52,6 +59,7 @@ group :development do
   gem 'binding_of_caller'
   # gem 'capistrano-rails' # Use Capistrano for deployment
   gem 'foreman', require: false
+  gem 'meta_request' # rails panel
   gem 'quiet_assets' # Suppress asset pipeline calls in logs
   gem 'web-console', '~> 2.0' # Access an IRB console on exception pages or by using <%= console %> in views
 end

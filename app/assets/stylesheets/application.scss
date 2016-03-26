@@ -15,7 +15,8 @@
 //= require peek/views/performance_bar
 
 @import "primer-css/scss/primer";
-@import "primer-markdown/components/markdown";
+@import "pygments";
+// @import "primer-markdown/components/markdown";
 @import "octicons/octicons/sprockets-octicons";
 @import "primer-extras";
 
@@ -23,7 +24,14 @@
 @import "test";
 @import "stafftools";
 @import "layout";
+
+@import "nprogress";
+@import "nprogress-bootstrap";
+@import "jquery-ui";
+@import "jquery-ui/sortable";
+@import "testing";
 //@import "components/peek";
+
 
 
 //@import "components/*";

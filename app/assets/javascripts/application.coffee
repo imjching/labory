@@ -13,6 +13,8 @@
 #= require jquery2
 #= require jquery.turbolinks
 #= require jquery_ujs
+#= require jquery-ui/sortable
+#= require jquery-ui/effect-highlight
 #
 #= require turbolinks
 #
@@ -29,5 +31,8 @@
 #= require clipboard/dist/clipboard
 #
 #= require js-cookie/src/js.cookie
+#
+#= require nprogress
+#= require nprogress-turbolinks
 #
 #= require_tree .

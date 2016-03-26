@@ -11830,7 +11830,11 @@ a.task-progress:hover .progress-bar .progress {
 }
 
 .application-authorizations .oauth-logo-cell {
-  width: 20px;
+  // width: 28px;
+  line-height: 70%;
+  padding-right: 10px;
+  word-wrap: break-word;
+  max-width: 28px;
 }
 
 .application-authorizations .oauth-app-access-name {
@@ -11853,8 +11857,9 @@ a.task-progress:hover .progress-bar .progress {
 }
 
 .application-authorizations .oauth-info-cell {
-  width: 640px;
-  //width: 599px;
+  // width: 640px;
+  width: 611px;
+  // width: 599px;
   padding-right: 0;
   padding-left: 0;
 }

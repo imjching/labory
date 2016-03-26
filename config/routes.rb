@@ -18,7 +18,12 @@ Rails.application.routes.draw do
 
     scope path_names: { edit: 'settings' } do
       resources :courses, path: 'modules' do
-        resources :labs
+        resources :labs do
+          member do
+            put :sort
+          end
+        end
+
       end
 
       resources :classrooms do

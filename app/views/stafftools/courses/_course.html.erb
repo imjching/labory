@@ -3,9 +3,8 @@
 
   <%= link_to [:stafftools, course] do %>
     <strong class="css-truncate-target"><%= course.title %></strong>
-  <% end %><small>6 labs</small>
+  <% end %><small><%= pluralize(course.labs.count, 'lab') %></small>
   <div class="fork-flag">
-
   <span class="text-muted css-truncate-target"><%= course.description %></span>
   </div>
 </li>

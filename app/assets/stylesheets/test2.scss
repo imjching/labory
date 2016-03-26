@@ -883,19 +883,14 @@
   width: 100%;
   color: #999;
   table-layout: fixed;
-  border-bottom: 1px solid #e5e5e5;
 }
 
 .table-list ol {
   list-style-type: decimal;
 }
 
-.table-list-bordered .table-list-cell:first-child {
-  border-left: 1px solid #eee;
-}
-
-.table-list-bordered .table-list-cell:last-child {
-  border-right: 1px solid #eee;
+.table-list-bordered {
+  border: 1px solid #e5e5e5;
 }
 
 .table-list-item {
@@ -914,7 +909,15 @@
   padding: 8px 10px;
   font-size: 12px;
   vertical-align: top;
+  border-bottom: 1px solid #eee;
+}
+
+.table-list-item.ui-sortable-placeholder + .table-list-item .table-list-cell {
   border-top: 1px solid #eee;
+}
+
+.table-list-item:last-child .table-list-cell {
+  border-bottom: 0;
 }
 
 .table-list-cell.flush-left {
@@ -967,7 +970,8 @@
   margin-top: 20px;
   margin-bottom: -1px;
   background-color: #f8f8f8;
-  border: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  // border: 1px solid #e5e5e5;
   border-radius: 3px 3px 0 0;
 }
 
