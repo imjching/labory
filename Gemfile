@@ -38,13 +38,12 @@ gem 'peek-pg' # postgresql
 gem 'peek-sidekiq', github: 'Soliah/peek-sidekiq', ref: '261c857578ae6dc189506a35194785a4db51e54c' # sidekiq
 gem 'pg' # Use postgresql as the database for Active Record
 gem 'puma' # web server
-gem 'pygments.rb'
 
 gem 'rack-canonical-host' # Rack middleware for defining a canonical host name.
 gem 'ranked-model' # sortable
-gem 'redcarpet'
+gem 'redcarpet' # markdown renderer
 gem 'redis-namespace'
-gem 'rouge'
+gem 'rouge' # syntax highlighting for markdown
 
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'sidekiq', '~> 4.1.0' # background processing
