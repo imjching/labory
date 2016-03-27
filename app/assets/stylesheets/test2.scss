@@ -4877,6 +4877,10 @@ g-emoji {
   -webkit-appearance: none;
 }
 
+.facebox-close:focus {
+  outline: 0;
+}
+
 .facebox-close:hover {
   opacity: 1;
 }
@@ -4900,14 +4904,14 @@ g-emoji {
 
 .facebox-loading {
   min-height: 64px;
-  background-image: url("/images/spinners/octocat-spinner-64.gif");
+  background-image: image-url("octocat-spinner-64.gif");
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .facebox-loading {
-    background-image: url("/images/spinners/octocat-spinner-128.gif");
+    background-image: image-url("octocat-spinner-128.gif");
     background-size: 64px 64px;
   };
 }

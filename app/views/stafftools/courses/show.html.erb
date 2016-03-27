@@ -24,10 +24,7 @@
         ::::::::
       </div>
 
-      <div class="table-list-cell oauth-info-cell" style="
-    /*padding-left: 10px;*/
-">
-
+      <div class="table-list-cell oauth-info-cell">
         <%= link_to lab.title, stafftools_course_lab_path(@course, lab), class: 'oauth-app-access-name' %>
         <p class="oauth-app-list-meta">
           Last updated in <%= time_ago_in_words(lab.updated_at) %> · Created by <a href="/airpair" class="oauth-app-owner">imjching</a>

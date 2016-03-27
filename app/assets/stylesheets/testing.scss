@@ -4,21 +4,17 @@
   box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
 }
 
-// #sortable li:hover {
-//     cursor: pointer;
-// }
-
 .handle {
   cursor: move;
   cursor: -webkit-grab;
   cursor: -moz-grab;
-}
 
-.handle:hover {
-  font-color: #57b5d6;
-}
+  &:hover {
+    font-color: #57b5d6;
+  }
 
-.handle:active {
+  &:active {
     cursor: -webkit-grabbing;
     cursor: -moz-grabbing;
+  }
 }

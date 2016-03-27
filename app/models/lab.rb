@@ -10,11 +10,8 @@ class Lab < ActiveRecord::Base
   validates :title, length: { maximum: 60 }
 
   validates :body, presence: true
-  #validates :body_gfm, presence: true
 
   ranks :sort_order, with_same: :course_id
-
-  before_save :render_gfm
 
   #validates :slug, uniqueness: { scope: :course_id }
 
@@ -22,9 +19,4 @@ class Lab < ActiveRecord::Base
     #self.slug = "#{title}".parameterize
   end
 
-  private
-
-  def render_gfm
-    #body_gfm = Octokit.markdown(text).html_safe
-  end
 end
