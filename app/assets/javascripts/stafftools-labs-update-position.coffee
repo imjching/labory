@@ -4,6 +4,8 @@ $('.stafftools.courses.show').ready ->
   #   cells = $('.table').find('tr')[0].cells.length
   #   desired_width = table_width / cells + 'px'
   #   $('.table td').css('width', desired_width)
+  $('a[rel*=facebox]').facebox()
+
   $('#sortable').sortable(
     handle: '.handle'
     axis: 'y'
