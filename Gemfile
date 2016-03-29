@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 #ruby '2.3.0'
 gem 'rails', '4.2.5.1'
 
+gem 'active_link_to' # for navigation links (will not work for urls with locales)
 gem 'autoprefixer-rails' # add vendor prefixes to CSS rules
 
 gem 'chewy' # elasticsearch-ruby client
