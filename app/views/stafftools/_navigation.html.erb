@@ -1,8 +1,8 @@
 <nav class="menu">
   <span class="menu-heading"><%= octicon('shield') %>&nbsp;&nbsp;Instructor's Panel</span>
-  <%= link_to 'Modules', stafftools_courses_path, class: 'menu-item selected' %>
-  <%= link_to 'Labs', stafftools_labs_path, class: 'menu-item' %>
-  <%= link_to 'Classrooms', stafftools_classrooms_path, class: 'menu-item' %>
+  <%= active_link_to 'Modules', stafftools_courses_path, class: 'menu-item', class_active: 'selected' %>
+  <%= active_link_to 'Labs', stafftools_labs_path, class: 'menu-item', class_active: 'selected' %>
+  <%= active_link_to 'Classrooms', stafftools_classrooms_path, class: 'menu-item', class_active: 'selected' %>
 </nav>
 
 <nav class="menu">
