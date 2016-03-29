@@ -38,7 +38,7 @@ module Stafftools
     end
 
     def set_course
-      @course = Course.find_by!(slug: params[:course_id])
+      @course = current_user.courses.find_by!(slug: params[:course_id])
     end
 
     def set_lab

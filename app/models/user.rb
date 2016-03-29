@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
 
   has_and_belongs_to_many :courses
+  has_and_belongs_to_many :classrooms
 
   validates :token, presence: true, uniqueness: true
 
+  # todo, check difference between splitting validation and combining both
   validates :uid, presence: true
   validates :uid, uniqueness: true
 

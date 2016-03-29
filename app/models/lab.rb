@@ -14,9 +14,4 @@ class Lab < ActiveRecord::Base
   ranks :sort_order, with_same: :course_id
 
   #validates :slug, uniqueness: { scope: :course_id }
-
-  def slugify
-    #self.slug = "#{title}".parameterize
-  end
-
 end

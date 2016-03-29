@@ -11,10 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326102557) do
+ActiveRecord::Schema.define(version: 20160328095426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "classroom_courses", force: :cascade do |t|
+    t.integer "classroom_id"
+    t.integer "course_id"
+    t.integer "sort_order",   default: 0, null: false
+  end
+
+  add_index "classroom_courses", ["classroom_id"], name: "index_classroom_courses_on_classroom_id", using: :btree
+  add_index "classroom_courses", ["course_id"], name: "index_classroom_courses_on_course_id", using: :btree
+  add_index "classroom_courses", ["sort_order"], name: "index_classroom_courses_on_sort_order", using: :btree
+
+  create_table "classroom_users", force: :cascade do |t|
+    t.integer "classroom_id"
+    t.integer "user_id"
+  end
+
+  add_index "classroom_users", ["classroom_id"], name: "index_classroom_users_on_classroom_id", using: :btree
+  add_index "classroom_users", ["user_id"], name: "index_classroom_users_on_user_id", using: :btree
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.string   "slug",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "classrooms", ["slug"], name: "index_classrooms_on_slug", using: :btree
+
+  create_table "classrooms_courses", force: :cascade do |t|
+    t.integer "classroom_id"
+    t.integer "course_id"
+    t.integer "sort_order",   default: 0, null: false
+  end
+
+  add_index "classrooms_courses", ["classroom_id"], name: "index_classrooms_courses_on_classroom_id", using: :btree
+  add_index "classrooms_courses", ["course_id"], name: "index_classrooms_courses_on_course_id", using: :btree
+  add_index "classrooms_courses", ["sort_order"], name: "index_classrooms_courses_on_sort_order", using: :btree
+
+  create_table "classrooms_users", force: :cascade do |t|
+    t.integer "classroom_id"
+    t.integer "user_id"
+  end
+
+  add_index "classrooms_users", ["classroom_id"], name: "index_classrooms_users_on_classroom_id", using: :btree
+  add_index "classrooms_users", ["user_id"], name: "index_classrooms_users_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "title",       null: false

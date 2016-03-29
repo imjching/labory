@@ -5,6 +5,10 @@ class Course < ActiveRecord::Base
 
   has_many :labs, dependent: :destroy
 
+  # dependent destroy for soft delete?
+  has_many :classrooms_courses, dependent: :destroy
+  has_many :classrooms, through: :classrooms_courses
+
   has_and_belongs_to_many :users
 
   validates :title, presence: true
@@ -13,7 +17,4 @@ class Course < ActiveRecord::Base
   validates :slug, uniqueness: true
 
   # todo include username in slug
-  def slugify
-    self.slug = "#{title}".parameterize
-  end
 end
