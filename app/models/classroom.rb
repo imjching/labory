@@ -13,12 +13,14 @@ class Classroom < ActiveRecord::Base
   validates :title, presence: true
   validates :title, length: { maximum: 60 }
 
-  validates :slug, uniqueness: true
+  validates :slug, uniqueness: { if: :slug_changed? }
 
   def slugify
-    self.slug = loop do
-      class_id = SecureRandom.uuid
-      break class_id unless Classroom.exists?(slug: class_id)
+    unless self.slug
+      self.slug = loop do
+        class_id = SecureRandom.uuid
+        break class_id unless Classroom.exists?(slug: class_id)
+      end
     end
   end
 
