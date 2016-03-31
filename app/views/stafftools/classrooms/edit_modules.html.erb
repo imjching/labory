@@ -1,0 +1,114 @@
+<div class="columns">
+  <div class="one-fourth column">
+    <nav class="menu">
+      <%= active_link_to 'Display', modules_stafftools_classroom_path, class: 'menu-item', class_active: 'selected', active: :exclusive %>
+      <%= active_link_to 'Add / Remove', modules_settings_stafftools_classroom_path, class: 'menu-item', class_active: 'selected' %>
+    </nav>
+  </div>
+  <div class="three-fourths column">
+    <div class="subhead">
+      <h2 class="subhead-heading">Add or remove modules</h2>
+    </div>
+
+<!-- padding: 5px 0; -->
+
+
+<%= form_for [:stafftools, @classroom], url: modules_stafftools_classroom_path(@classroom), method: :put do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="boxed-group">
+        <h3>My modules</h3>
+        <div class="boxed-group-inner">
+
+
+<ul class="boxed-group-list boxed-group-standalone">
+
+<li class="personal-access-tokens js-check-scope-container">
+
+
+    <%= f.collection_check_boxes(:course_ids, @available_courses, :id, :title) do |b| %>
+      <div class="module-scope">
+        <%= b.check_box %>
+        <%= b.object.title %>
+      </div>
+    <% end %>
+
+
+
+    </li>
+
+</ul>
+
+<!--
+          <ul class="boxed-group-list boxed-group-standalone">
+              <li class="personal-access-tokens js-check-scope-container">
+        <label>
+          <div class="token-scope">
+            <input class="js-checkbox-scope" id="oauth_access_scopes_repo" name="oauth_access[scopes][]" type="checkbox" value="repo">
+            repo
+          </div>
+        </label>
+          <ul class="child-scopes">
+              <li class="personal-access-tokens js-check-scope-container">
+        <label>
+          <div class="token-scope">
+            <input class="js-checkbox-scope" id="oauth_access_scopes_repo:status" name="oauth_access[scopes][]" type="checkbox" value="repo:status">
+            repo:status
+          </div>
+          <p class="token-scope-desciption">
+            Access commit status
+          </p>
+        </label>
+      </li>
+
+
+
+          </ul>
+      </li>
+
+
+
+
+
+
+
+          </ul>
+
+          -->
+        </div>
+      </div>
+
+
+<%#= form_for [:stafftools, @course] do |f| %>
+  <%#= render 'shared/error_messages', object: f.object %>
+  <%#= render partial: 'stafftools/courses/course_form_options', locals: { f: f } %>
+
+  <%#= f.submit 'Create Module', class: 'btn btn-primary', id: 'course_submit', disabled: true %>
+  <%#= link_to 'Cancel', stafftools_courses_path, class: 'btn', role: 'button' %>
+<%# end %>
+
+
+<%#= form_for @kennel do |f| %>
+  <%#= f.collection_check_boxes(:handler_ids, Handler.all, :id, :to_s) %>
+<%# end %>
+
+ <%= f.submit 'Update classroom', class: 'btn btn-primary' %>
+
+    <% end %>
+
+    Do note that everytime you add / remove modules, the position or sort order might change! Danger zone.
+
+    <!-- Todo: add a check to disable button if the form is not dirty-->
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

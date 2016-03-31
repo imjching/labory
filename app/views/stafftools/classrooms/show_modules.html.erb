@@ -1,0 +1,19 @@
+<div class="columns">
+  <div class="one-fourth column">
+    <nav class="menu">
+      <%= active_link_to 'Display', modules_stafftools_classroom_path, class: 'menu-item', class_active: 'selected', active: :exclusive %>
+      <%= active_link_to 'Add / Remove', modules_settings_stafftools_classroom_path, class: 'menu-item', class_active: 'selected' %>
+    </nav>
+  </div>
+  <div class="three-fourths column">
+    <div class="subhead">
+      <h2 class="subhead-heading">Modules Display</h2>
+    </div>
+
+    <% @courses.each do |course| %>
+      <%= course.course.title %>
+    <% end %>
+
+
+  </div>
+</div>
