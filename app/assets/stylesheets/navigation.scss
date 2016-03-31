@@ -1,0 +1,61 @@
+.classroom-head {
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+
+  h1 {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #666;
+
+    .octicon {
+      margin-top: 3px;
+      color: #bbb;
+    }
+  }
+
+  .path-divider {
+    margin: 0 0.25em;
+  }
+
+  .btn .octicon {
+    margin-right: 4px;
+  }
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.tabnav-tab {
+    padding: 7px 15px 8px;
+    font-size: 13px;
+    line-height: inherit;
+    border: solid transparent;
+    border-width: 3px 1px 1px;
+    border-radius: 3px 3px 0 0;
+
+    .octicon {
+      margin-right: 4px;
+      color: #bbb;
+    }
+
+    .counter {
+      margin-left: 3px;
+      color: #555;
+    }
+
+    &:hover, &:focus {
+      color: #333;
+    }
+
+    &.selected {
+      color: #111;
+      border-color: #d26911 #e5e5e5 transparent;
+
+      > .octicon {
+        color: inherit;
+      }
+    }
+}

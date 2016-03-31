@@ -28,7 +28,21 @@ Rails.application.routes.draw do
 
       resources :classrooms do
         member do
-          get :invite
+          post '/new_invite_link', to: 'classrooms#get_new_invite_link'
+
+          delete '/students/:user_id', to: 'classrooms#remove_student'
+
+          get '/mentors', to: 'classrooms#show_mentors'
+          post '/mentors', to: 'classrooms#add_mentor' # must first invite mentor onto platform through any link
+          delete '/mentors/:user_id', to: 'classrooms#remove_mentor'
+
+          get '/modules', to: 'classrooms#show_modules'
+          put '/modules', to: 'classrooms#update_modules'
+          get '/modules/settings', to: 'classrooms#edit_modules'
+          put '/modules/sort', to: 'classrooms#sort_module'
+          put '/modules/toggle', to: 'classrooms#toggle_module' # hide/unhide
+
+          get '/graphs', to: 'classrooms#show_graphs'
         end
       end
     end

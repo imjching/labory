@@ -1,0 +1,28 @@
+<div class="boxed-group">
+  <% if @classrooms.present? %>
+    <%= link_to new_stafftools_classroom_path, class: 'boxed-group-action btn btn-sm btn-primary', role: 'button' do %>
+      <%= octicon('plus') %>&nbsp;&nbsp;New classroom
+    <% end %>
+  <% end %>
+  <h3>Classrooms</h3>
+
+  <% if @classrooms.present? %>
+    <div class="boxed-group-inner">
+      <ul class="boxed-group-list boxed-group-standalone">
+        <%= render @classrooms %>
+      </ul>
+    </div>
+  <% else %>
+    <div class="boxed-group-inner">
+      <div class="blankslate blankslate-fixed-width">
+        <%= mega_octicon('organization') %>
+        <h3>You do not have any classrooms yet.</h3>
+        <p>You can begin inviting students once you have at least one classroom.</p>
+        <%= link_to new_stafftools_classroom_path, class: 'btn btn-primary', role: 'button' do %>
+          Create your first classroom
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

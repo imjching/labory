@@ -1,0 +1,19 @@
+<div class="tabnav">
+  <nav class="tabnav-tabs">
+    <%= active_link_to stafftools_classroom_path, class: 'tabnav-tab', class_active: 'selected', active: :exclusive do %>
+      <%= octicon('organization') %>Students<span class="counter">10</span>
+    <% end %>
+    <%= active_link_to mentors_stafftools_classroom_path, class: 'tabnav-tab', class_active: 'selected' do %>
+      <%= octicon('octoface') %>Mentors<span class="counter">2</span>
+    <% end %>
+    <%= active_link_to modules_stafftools_classroom_path, class: 'tabnav-tab', class_active: 'selected' do %>
+      <%= octicon('book') %>Modules
+    <% end %>
+    <%= active_link_to graphs_stafftools_classroom_path, class: 'tabnav-tab', class_active: 'selected' do %>
+      <%= octicon('graph') %>Graphs
+    <% end %>
+    <%= active_link_to edit_stafftools_classroom_path, class: 'tabnav-tab', class_active: 'selected' do %>
+      <%= octicon('gear') %>Settings
+    <% end %>
+  </nav>
+</div>
