@@ -55,6 +55,6 @@
     "commit": "9dd9ec82ddda5441a733b1be53f11ed58a9de1d7"
   },
   "_source": "git://github.com/VodkaBears/Remodal.git",
-  "_target": "^1.0.6",
+  "_target": "^1.0.7",
   "_originalSource": "remodal"
 }

@@ -11,10 +11,10 @@
     "tests"
   ],
   "dependencies": {
-    "primer-css": "^2.7.1",
+    "primer-css": "^3.0.1",
     "jquery-readyselector": "Verba/jquery-readyselector",
-    "remodal": "^1.0.6",
-    "clipboard": "^1.5.9",
+    "remodal": "^1.0.7",
+    "clipboard": "^1.5.10",
     "js-cookie": "^2.1.0",
     "primer-markdown": "^2.5.1"
   }
