@@ -10,9 +10,38 @@
       <h2 class="subhead-heading">Modules Display</h2>
     </div>
 
-    <% @courses.each do |course| %>
-      <%= course.course.title %>
-    <% end %>
+    <ul class="table-list table-list-bordered show-modules" id="sortable">
+
+ <% @classrooms_courses.each do |classroom_course| %>
+  <li id="app-5adb6a29c586908f8161" data-sort-url="<%= modules_sort_stafftools_classroom_path(@classroom, classroom_course.id) %>" class="table-list-item<%= classroom_course.visible?? '' : ' opacity-4' %>">
+    <div id="oauth-authorization-5adb6a29c586908f8161" class="js-revoke-item" data-id="5adb6a29c586908f8161" data-type="application">
+
+      <div class="table-list-cell module-handle-cell handle">
+        ::::::::
+      </div>
+
+      <div class="table-list-cell module-info-cell">
+        <%= link_to classroom_course.course.title, stafftools_course_path(classroom_course.course), class: 'module-info-name' %>
+        <p class="module-info-meta">
+          Last updated in <%= time_ago_in_words(classroom_course.updated_at) %>
+        </p>
+      </div>
+
+      <div class="table-list-cell module-btn-cell">
+        <button type="button" class="btn btn-sm btn-outline btn-show-hide js-show-hide-btn" data-toggle-url="<%= modules_toggle_stafftools_classroom_path(@classroom, classroom_course.id) %>">
+          <span class="octicon mr-1 <%= classroom_course.visible?? 'octicon-mute' : 'octicon-eye'%>"></span>
+          <label btn-show="Show" btn-hide="Hide"></label>
+        </button>
+      </div>
+    </div>
+  </li>
+<% end %>
+
+
+
+  </ul>
+
+
 
 
   </div>

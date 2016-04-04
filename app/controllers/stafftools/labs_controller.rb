@@ -47,7 +47,7 @@ module Stafftools
 
     def sort_lab_params
       params
-        .require(:lab)
+        .require(:sortable)
         .permit(:sort_order_position)
     end
   end

@@ -2,7 +2,7 @@ module Stafftools
   class ClassroomsController < StafftoolsController
     layout :resolve_layout
 
-    before_action :set_classroom, except: [:index, :new, :create, :edit_modules, :update_modules]
+    before_action :set_classroom, except: [:index, :new, :create, :edit_modules, :update_modules, :sort_module, :toggle_module]
 
     def index
       @classrooms = current_user.classrooms.page(params[:page])
@@ -35,7 +35,7 @@ module Stafftools
     end
 
     def show_modules
-      @courses = @classroom.classrooms_courses.includes(:course).rank(:sort_order)
+      @classrooms_courses = @classroom.classrooms_courses.includes(:course).rank(:sort_order)
     end
 
     def edit_modules
@@ -59,6 +59,22 @@ module Stafftools
       end
     end
 
+    def sort_module
+      @classroom = current_user.classrooms.find_by!(slug: params[:id])
+      @linked_course = ClassroomsCourse.find_by!(id: params[:classrooms_course_id], classroom_id: @classroom.id)
+
+      @linked_course.update_attributes(sort_module_params)
+      render nothing: true
+    end
+
+    def toggle_module
+      @classroom = current_user.classrooms.find_by!(slug: params[:id])
+      @linked_course = ClassroomsCourse.find_by!(id: params[:classrooms_course_id], classroom_id: @classroom.id)
+
+      @linked_course.update_attributes(visible: !@linked_course.visible)
+      render nothing: true
+    end
+
     def show_graphs
 
     end
@@ -80,6 +96,12 @@ module Stafftools
       params
         .require(:classroom)
         .permit( { course_ids: [] } )
+    end
+
+    def sort_module_params
+      params
+        .require(:sortable)
+        .permit(:sort_order_position)
     end
 
     def resolve_layout

@@ -1,4 +1,4 @@
-$('.stafftools.courses.show').ready ->
+ready = ->
   # if $('#sortable').length > 0
   #   table_width = $('#sortable').width()
   #   cells = $('.table').find('tr')[0].cells.length
@@ -28,6 +28,8 @@ $('.stafftools.courses.show').ready ->
         type: 'PUT'
         url: ui.item.data('sort-url')
         dataType: 'json'
-        data: { lab: { sort_order_position: position } }
+        data: { sortable: { sort_order_position: position } }
       )
   )
+
+$(document).ready(ready)

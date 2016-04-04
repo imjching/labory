@@ -1,0 +1,66 @@
+.show-modules {
+  :target {
+    background-color: #ffe;
+  }
+
+  .module-handle-cell {
+    line-height: 70%;
+    padding-right: 10px;
+    word-wrap: break-word;
+    max-width: 28px;
+  }
+
+  .module-info-cell {
+    width: 611px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .module-info-name {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #333;
+
+    &:hover {
+      color: #4078c0;
+      text-decoration: none;
+    }
+  }
+
+  .module-info-meta {
+    margin-top: 1px;
+    margin-bottom: 2px;
+    font-weight: normal;
+    color: #999;
+  }
+
+  .module-btn-cell {
+    width: 90px;
+    text-align: right;
+  }
+}
+
+.btn-show-hide {
+  label {
+    cursor: pointer;
+  }
+
+  span.octicon-eye + label:before {
+    content: attr(btn-show);
+  }
+
+  span.octicon-mute + label:before {
+    content: attr(btn-hide);
+  }
+}
+
+
+
+
+// utilities
+
+.opacity-4 {
+  opacity: 0.4;
+}
+

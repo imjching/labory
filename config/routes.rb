@@ -39,8 +39,8 @@ Rails.application.routes.draw do
           get '/modules', to: 'classrooms#show_modules'
           put '/modules', to: 'classrooms#update_modules'
           get '/modules/settings', to: 'classrooms#edit_modules'
-          put '/modules/sort', to: 'classrooms#sort_module'
-          put '/modules/toggle', to: 'classrooms#toggle_module' # hide/unhide
+          put '/modules/:classrooms_course_id/sort', to: 'classrooms#sort_module', as: :modules_sort
+          put '/modules/:classrooms_course_id/toggle', to: 'classrooms#toggle_module', as: :modules_toggle
 
           get '/graphs', to: 'classrooms#show_graphs'
         end
