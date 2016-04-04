@@ -1,0 +1,21 @@
+// Modified from Bootstrap Tabs
+.tab-content {
+  > .tab-pane {
+    display: none;
+  }
+
+  > .selected {
+    display: block;
+  }
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+
+  &.in {
+    opacity: 1;
+  }
+}
