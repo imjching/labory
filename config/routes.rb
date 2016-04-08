@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   namespace :stafftools do
     root to: 'resources#index'
 
+    get '/test', to: 'resources#test'
+
     scope path_names: { edit: 'settings' } do
       resources :courses, path: 'modules' do
         resources :labs do
@@ -30,11 +32,11 @@ Rails.application.routes.draw do
         member do
           post '/new_invite_link', to: 'classrooms#get_new_invite_link'
 
-          delete '/students/:user_id', to: 'classrooms#remove_student'
+          delete '/members/:user_id', to: 'classrooms#remove_member'
 
-          get '/mentors', to: 'classrooms#show_mentors'
-          post '/mentors', to: 'classrooms#add_mentor' # must first invite mentor onto platform through any link
-          delete '/mentors/:user_id', to: 'classrooms#remove_mentor'
+          #get '/mentors', to: 'classrooms#show_mentors'
+          #post '/mentors', to: 'classrooms#add_mentor' # must first invite mentor onto platform through any link
+          #delete '/mentors/:user_id', to: 'classrooms#remove_mentor'
 
           get '/modules', to: 'classrooms#show_modules'
           put '/modules', to: 'classrooms#update_modules'
