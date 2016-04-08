@@ -1,9 +1,10 @@
 <% if @invitation.present? %>
 ready = (container) ->
   container
-    # replace and highlight duration
-    .find('#duration_field')
-      .html('<%= time_ago_in_words(@invitation.generated_at + 3.hours) %>')
+    # replace and highlight expiry message
+    # will not expire yet since it is new
+    .find('#expire_message')
+      .html('This invitation link will expire in <%= time_ago_in_words(@invitation.expired_at) %>.')
       .effect('highlight', {}, 1000)
       .end()
     # replace and highlight link

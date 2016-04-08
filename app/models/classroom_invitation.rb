@@ -22,7 +22,11 @@ class ClassroomInvitation < ActiveRecord::Base
       temp_key = SecureRandom.hex(4)
       break temp_key unless ClassroomInvitation.exists?(key: temp_key)
     end
-    self.generated_at = Time.now
+    self.expired_at = Time.now + 3.hours
+  end
+
+  def expired?
+    self.expired_at <= Time.now
   end
 
   private
