@@ -30,7 +30,11 @@ module Stafftools
 
     end
 
-    def show_mentors
+    def get_new_invite_link
+
+    end
+
+    def remove_member
 
     end
 
