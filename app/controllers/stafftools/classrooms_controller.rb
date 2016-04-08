@@ -17,6 +17,7 @@ module Stafftools
       @classroom.build_classroom_invitation
 
       if @classroom.save
+        ClassroomAccess.create(classroom: @classroom, user: current_user, role: ClassroomAccess.roles[:admin])
         redirect_to modules_settings_stafftools_classroom_path(@classroom)
       else
         render :new
@@ -96,7 +97,7 @@ module Stafftools
       params
         .require(:classroom)
         .permit(:title)
-        .merge(users: [current_user])
+        #.merge(users: [current_user])
     end
 
     def update_modules_params

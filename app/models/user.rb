@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
 
+  # as admin
   has_and_belongs_to_many :courses
-  has_and_belongs_to_many :classrooms
+
+  # member/admin
+  has_many :classroom_accesses, dependent: :destroy
+  has_many :classrooms, through: :classroom_accesses
 
   validates :token, presence: true, uniqueness: true
 
@@ -36,7 +40,8 @@ class User < ActiveRecord::Base
   end
 
   def staff?
+    GitHubUser.new(github_client, uid).user.login == 'imjching'
     #site_admin
-    true
+    # true
   end
 end

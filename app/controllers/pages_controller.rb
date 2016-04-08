@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     when 'home'
       'layouts/pages'
     else
-      'layouts/app'
+      'layouts/application'
     end
   end
 end

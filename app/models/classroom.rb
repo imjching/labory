@@ -9,12 +9,14 @@ class Classroom < ActiveRecord::Base
 
   # i think dependent destroy can only be placed on the has many side
 
-  has_and_belongs_to_many :users #temporary until we add roles
+  # member/admin
+  has_many :classroom_accesses, dependent: :destroy
+  has_many :users, through: :classroom_accesses
 
   validates :title, presence: true
   validates :title, length: { maximum: 60 }
 
-  validates :slug, uniqueness: { if: :slug_changed? }
+  # validates :slug, uniqueness: { if: :slug_changed? }
 
   alias_attribute :invitation, :classroom_invitation
 
@@ -25,6 +27,12 @@ class Classroom < ActiveRecord::Base
         break class_id unless Classroom.exists?(slug: class_id)
       end
     end
+  end
+
+  private
+
+  def slug=(val) # won't double check
+    self[:slug] = val
   end
 
 end

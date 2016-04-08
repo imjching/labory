@@ -9,6 +9,10 @@ class ClassroomInvitation < ActiveRecord::Base
 
   after_initialize :generate_key, if: :new_record?
 
+  def redeem_for(invitee)
+    ClassroomAccess.find_or_create_by!(classroom: classroom, user: invitee)
+  end
+
   def title
     classroom.title
   end

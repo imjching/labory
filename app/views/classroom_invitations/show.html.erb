@@ -1,0 +1,7 @@
+Classroom: <%= classroom.title %>
+
+<%= form_tag({ controller: :classroom_invitations, action: :accept_invitation}, method: :patch) do %>
+  <div class="form-actions">
+    <%= submit_tag 'Join this classroom', class: 'btn btn-green js-navigation' %>
+  </div>
+<% end %>
