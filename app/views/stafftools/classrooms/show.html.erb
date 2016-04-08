@@ -1,0 +1,456 @@
+<div class="subnav org-toolbar">
+
+  <form accept-charset="UTF-8" action="/orgs/cs-notes/people" class="subnav-search left is-sending" data-results-container="org-members" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+    <div class="auto-search-group">
+      <input class="form-control subnav-search-input input-contrast auto-search-input js-autosearch-field js-member-filter-field" type="text" name="query" value="" placeholder="Find a member…" aria-label="Find a member…" autocomplete="off">
+      <%= octicon('search') %>
+      <img class="spinner" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" alt="">
+    </div>
+  </form>
+
+  <div class="right">
+    <a href="#invite_members" class="btn btn-primary" rel="facebox">
+      Invite members
+    </a>
+
+    <div id="invite_members" style="display:none">
+      <div>
+        <h2 class="facebox-header" data-facebox-id="facebox-header">Invite members to <%= @classroom.title %></h2>
+
+        <p class="facebox-alert" data-facebox-id="facebox-description">
+          Invitation links will only work for 3 hours. You have to regenerate another one if the old one has already expired.
+        </p>
+
+        <dl class="form-group">
+          <%= render @classroom.classroom_invitation %>
+        </dl>
+        <%= form_tag({ controller: :classrooms, action: :get_new_invite_link}, method: :post, id: 'new_invite_link_form', remote: true) do %>
+          <%= submit_tag 'Generate a new link', class: 'btn btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div><!-- right end -->
+
+
+
+</div><!-- subnav end -->
+
+
+
+
+      <div class="table-list-header table-list-bordered js-org-toolbar">
+
+        <div class="table-list-header-toggle right js-member-not-selected-actions">
+
+
+          <div class="left select-menu js-menu-container js-select-menu">
+            <button class="btn-link select-menu-button icon-only js-menu-target" type="button" aria-haspopup="true">
+              Filter by organization role
+            </button>
+
+            <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
+
+              <div class="select-menu-modal">
+                <div class="select-menu-header">
+                  <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
+                  <span class="select-menu-title">Filter by role</span>
+                </div>
+                <div class="select-menu-list" role="menu">
+                  <div>
+                    <a href="#" class="select-menu-item js-navigation-item js-navigation-open js-member-search-filter selected" data-filter="" role="menuitem">
+                      <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
+                      <div class="select-menu-item-text">Everyone</div>
+                    </a>
+                    <a href="#" class="select-menu-item js-navigation-item js-navigation-open js-member-search-filter" data-filter="role:owner" role="menuitem">
+                      <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
+                      <div class="select-menu-item-text">Owners</div>
+                    </a>
+                    <a href="#" class="select-menu-item js-navigation-item js-navigation-open js-member-search-filter" data-filter="role:member" role="menuitem">
+                      <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
+                      <div class="select-menu-item-text">Members</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <span class="table-list-heading table-list-header-meta">
+            9 people in the Stanford Crowd Course Initiative  organization
+          </span>
+
+        <div class="member-toolbar-actions right js-member-selected-actions hidden" data-toolbar-actions-url="/orgs/crowd-course/people/toolbar_actions">
+
+
+
+
+
+
+        </div>
+      </div>
+
+    <div id="org-members">  <ul class="member-listing table-list table-list-bordered  js-person-grid">
+
+<li class="table-list-item member-list-item js-org-person " data-id="6423467">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@aditimithal" class="avatar member-list-avatar" height="48" src="https://avatars2.githubusercontent.com/u/6423467?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/aditimithal" class="member-link">
+        <strong class="member-username css-truncate-target">aditimithal</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name"></span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40aditimithal">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  <svg aria-hidden="true" class="octicon octicon-lock" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 13h-1v-1h1v1z m8-6v7c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h1V4C2 1.8 3.8 0 6 0s4 1.8 4 4v2h1c0.55 0 1 0.45 1 1z m-8.2-1h4.41V4c0-1.22-0.98-2.2-2.2-2.2s-2.2 0.98-2.2 2.2v2z m7.2 1H2v7h9V7z m-7 1h-1v1h1v-1z m0 2h-1v1h1v-1z"></path></svg>
+  Private
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="537826">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@andrealmar" class="avatar member-list-avatar" height="48" src="https://avatars0.githubusercontent.com/u/537826?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/andrealmar" class="member-link">
+        <strong class="member-username css-truncate-target">andrealmar</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name">Andre Almar</span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40andrealmar">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  Public
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="3356092">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@ashriths" class="avatar member-list-avatar" height="48" src="https://avatars0.githubusercontent.com/u/3356092?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/ashriths" class="member-link">
+        <strong class="member-username css-truncate-target">ashriths</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name">Ashrith Sheshan</span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40ashriths">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  <svg aria-hidden="true" class="octicon octicon-lock" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 13h-1v-1h1v1z m8-6v7c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h1V4C2 1.8 3.8 0 6 0s4 1.8 4 4v2h1c0.55 0 1 0.45 1 1z m-8.2-1h4.41V4c0-1.22-0.98-2.2-2.2-2.2s-2.2 0.98-2.2 2.2v2z m7.2 1H2v7h9V7z m-7 1h-1v1h1v-1z m0 2h-1v1h1v-1z"></path></svg>
+  Private
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="8179267">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@Ashukat" class="avatar member-list-avatar" height="48" src="https://avatars1.githubusercontent.com/u/8179267?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/Ashukat" class="member-link">
+        <strong class="member-username css-truncate-target">Ashukat</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name"></span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40Ashukat">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  <svg aria-hidden="true" class="octicon octicon-lock" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 13h-1v-1h1v1z m8-6v7c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h1V4C2 1.8 3.8 0 6 0s4 1.8 4 4v2h1c0.55 0 1 0.45 1 1z m-8.2-1h4.41V4c0-1.22-0.98-2.2-2.2-2.2s-2.2 0.98-2.2 2.2v2z m7.2 1H2v7h9V7z m-7 1h-1v1h1v-1z m0 2h-1v1h1v-1z"></path></svg>
+  Private
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="6959077">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@ayushshah" class="avatar member-list-avatar" height="48" src="https://avatars3.githubusercontent.com/u/6959077?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/ayushshah" class="member-link">
+        <strong class="member-username css-truncate-target">ayushshah</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name">Ayush Shah</span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40ayushshah">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  <svg aria-hidden="true" class="octicon octicon-lock" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 13h-1v-1h1v1z m8-6v7c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h1V4C2 1.8 3.8 0 6 0s4 1.8 4 4v2h1c0.55 0 1 0.45 1 1z m-8.2-1h4.41V4c0-1.22-0.98-2.2-2.2-2.2s-2.2 0.98-2.2 2.2v2z m7.2 1H2v7h9V7z m-7 1h-1v1h1v-1z m0 2h-1v1h1v-1z"></path></svg>
+  Private
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="6175557">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@imjching" class="avatar member-list-avatar" height="48" src="https://avatars3.githubusercontent.com/u/6175557?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/imjching" class="member-link">
+        <strong class="member-username css-truncate-target">imjching</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name">Jay C.</span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40imjching">
+        0 teams
+      </a>
+    </div>
+
+      <div class="select-menu member-visibility member-meta table-list-cell js-menu-container js-select-menu">
+        <button class="btn-link select-menu-button js-menu-target" type="button">
+
+  Public
+
+        </button>
+
+
+<div class="select-menu-modal-holder js-menu-content js-navigation-container">
+  <div class="select-menu-modal">
+    <div class="select-menu-header">
+      <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
+      <span class="select-menu-title">Organization visibility</span>
+    </div>
+
+    <div class="select-menu-list">
+      <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/orgs/crowd-course/people/set_visibility" class="inline-form select-menu-item js-navigation-item selected" data-form-nonce="bc2b189e4d8d0056338f57547fc0ca88880cb8f5" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="ZeQYAgnAQ0w6DRF5SfvPOEmojP3ovSxv6CnETEmCoEkQPHClf+oMpOh/dVoZT6U3MDeVkVgeqF+DvaWN9tmIrg=="></div>
+        <input type="hidden" name="publicize" value="1">
+        <input type="hidden" name="member_ids" value="6175557">
+        <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
+        <button type="submit" class="btn-plain select-menu-item-text js-select-button-text">
+          <span class="select-menu-item-heading">Public</span>
+          <span class="description">Your membership is visible to everyone and is displayed on your public profile.</span>
+        </button>
+</form>
+      <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/orgs/crowd-course/people/set_visibility" class="inline-form select-menu-item js-navigation-item " data-form-nonce="bc2b189e4d8d0056338f57547fc0ca88880cb8f5" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="q6IFwnfUx6qBBMs379vsRxClSqpK8p+EOZVOweo13WHPPyH1TYxk+htbl0yQ8pTKjwRu+hzBEHykyBfla0TgkA=="></div>
+        <input type="hidden" name="conceal" value="1">
+        <input type="hidden" name="member_ids" value="6175557">
+        <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
+        <button type="submit" class="btn-plain select-menu-item-text js-select-button-text">
+          <span class="select-menu-item-heading">Private</span>
+          <span class="description">Your membership is only visible to other members of this organization.</span>
+        </button>
+</form>    </div>
+  </div>
+</div>
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="18133363">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@pranavkaushik06" class="avatar member-list-avatar" height="48" src="https://avatars3.githubusercontent.com/u/18133363?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/pranavkaushik06" class="member-link">
+        <strong class="member-username css-truncate-target">pranavkaushik06</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name">Pranav kaushik</span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40pranavkaushik06">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  <svg aria-hidden="true" class="octicon octicon-lock" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 13h-1v-1h1v1z m8-6v7c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h1V4C2 1.8 3.8 0 6 0s4 1.8 4 4v2h1c0.55 0 1 0.45 1 1z m-8.2-1h4.41V4c0-1.22-0.98-2.2-2.2-2.2s-2.2 0.98-2.2 2.2v2z m7.2 1H2v7h9V7z m-7 1h-1v1h1v-1z m0 2h-1v1h1v-1z"></path></svg>
+  Private
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="4333249">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@rvaish" class="avatar member-list-avatar" height="48" src="https://avatars3.githubusercontent.com/u/4333249?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/rvaish" class="member-link">
+        <strong class="member-username css-truncate-target">rvaish</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name">Rajan Vaish</span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40rvaish">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  <svg aria-hidden="true" class="octicon octicon-lock" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 13h-1v-1h1v1z m8-6v7c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h1V4C2 1.8 3.8 0 6 0s4 1.8 4 4v2h1c0.55 0 1 0.45 1 1z m-8.2-1h4.41V4c0-1.22-0.98-2.2-2.2-2.2s-2.2 0.98-2.2 2.2v2z m7.2 1H2v7h9V7z m-7 1h-1v1h1v-1z m0 2h-1v1h1v-1z"></path></svg>
+  Private
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Owners have full access to teams, settings, and repositories.">
+          Owner
+        </span>
+      </div>
+
+
+</li>
+
+
+<li class="table-list-item member-list-item js-org-person " data-id="12610915">
+
+  <div class="table-list-cell member-info css-truncate">
+    <img alt="@sarmatejas1006" class="avatar member-list-avatar" height="48" src="https://avatars3.githubusercontent.com/u/12610915?v=3&amp;s=96" width="48">
+    <div class="member-info-content">
+        <a href="/sarmatejas1006" class="member-link">
+        <strong class="member-username css-truncate-target">sarmatejas1006</strong>
+      </a>
+      <span class="member-fullname css-truncate-target" itemprop="name">Tejas Sarma</span>
+    </div>
+  </div>
+
+
+    <div class="member-meta table-list-cell">
+      <a class="member-meta-link" href="/orgs/crowd-course/teams?query=%40sarmatejas1006">
+        0 teams
+      </a>
+    </div>
+
+      <div class="member-visibility member-meta table-list-cell">
+
+  <svg aria-hidden="true" class="octicon octicon-lock" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 13h-1v-1h1v1z m8-6v7c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h1V4C2 1.8 3.8 0 6 0s4 1.8 4 4v2h1c0.55 0 1 0.45 1 1z m-8.2-1h4.41V4c0-1.22-0.98-2.2-2.2-2.2s-2.2 0.98-2.2 2.2v2z m7.2 1H2v7h9V7z m-7 1h-1v1h1v-1z m0 2h-1v1h1v-1z"></path></svg>
+  Private
+
+      </div>
+
+      <div class="member-meta table-list-cell">
+        <span class="tooltipped tooltipped-s" aria-label="Members can be assigned to teams and collaborate on to repos.">
+          Member
+        </span>
+      </div>
+
+
+</li>
+
+  </ul>
+
+<div class="paginate-container">
+
+</div>
+
+
+</div>
