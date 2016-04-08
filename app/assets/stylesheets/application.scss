@@ -14,10 +14,11 @@
 //= require peek
 //= require peek/views/performance_bar
 
+@import "octicons/octicons/sprockets-octicons";
 @import "primer-css/scss/primer";
 @import "pygments";
 // @import "primer-markdown/components/markdown";
-@import "octicons/octicons/sprockets-octicons";
+
 @import "primer-extras";
 
 @import "test2";

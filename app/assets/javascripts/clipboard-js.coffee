@@ -7,7 +7,7 @@
 showTooltip = ($elem, msg) ->
   $elem.attr('aria-label', msg)
 
-$(document).ready ->
+ready = ->
   clipboards = new Clipboard('.js-clipboard')
 
   for clipboardBtn in $('.js-clipboard')
@@ -31,3 +31,6 @@ $(document).ready ->
     copyMessage = 'Press Ctrl-C to copy'
 
   clipboards.on('error', (e) -> showTooltip $(e.trigger), copyMessage)
+
+$(document).ready(ready)
+$(document).bind('clipboardjs:init', ready) # Hook for clipboard-js
