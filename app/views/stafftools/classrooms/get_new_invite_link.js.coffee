@@ -1,14 +1,14 @@
-<% if @invite.present? %>
+<% if @invitation.present? %>
 ready = (container) ->
   container
     # replace and highlight duration
     .find('#duration_field')
-      .html('2 hours 59 minutes')
+      .html('<%= time_ago_in_words(@invitation.generated_at + 3.hours) %>')
       .effect('highlight', {}, 1000)
       .end()
     # replace and highlight link
-    .find('.form-group #clipboard_field')
-      .attr('value', 'https://docker-vm/join/asbcdsfaf')
+    .find('.form-group input')
+      .attr('value', '<%= classroom_invitation_url(@invitation) %>')
       .effect('highlight', {}, 1000)
       .end()
     # highlight button

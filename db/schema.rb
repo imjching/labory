@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404103448) do
+ActiveRecord::Schema.define(version: 20160408124021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20160404103448) do
   add_index "classroom_courses", ["classroom_id"], name: "index_classroom_courses_on_classroom_id", using: :btree
   add_index "classroom_courses", ["course_id"], name: "index_classroom_courses_on_course_id", using: :btree
   add_index "classroom_courses", ["sort_order"], name: "index_classroom_courses_on_sort_order", using: :btree
+
+  create_table "classroom_invitations", force: :cascade do |t|
+    t.string   "key",          null: false
+    t.integer  "classroom_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "generated_at"
+  end
+
+  add_index "classroom_invitations", ["classroom_id"], name: "index_classroom_invitations_on_classroom_id", using: :btree
+  add_index "classroom_invitations", ["generated_at"], name: "index_classroom_invitations_on_generated_at", using: :btree
+  add_index "classroom_invitations", ["key"], name: "index_classroom_invitations_on_key", unique: true, using: :btree
 
   create_table "classroom_users", force: :cascade do |t|
     t.integer "classroom_id"

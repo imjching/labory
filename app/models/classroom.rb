@@ -2,6 +2,7 @@ class Classroom < ActiveRecord::Base
   include Sluggable
 
   # default_scope { where(deleted_at: nil) }
+  has_one :classroom_invitation, dependent: :destroy, autosave: true
 
   has_many :classrooms_courses, dependent: :destroy
   has_many :courses, through: :classrooms_courses
@@ -14,6 +15,8 @@ class Classroom < ActiveRecord::Base
   validates :title, length: { maximum: 60 }
 
   validates :slug, uniqueness: { if: :slug_changed? }
+
+  alias_attribute :invitation, :classroom_invitation
 
   def slugify
     unless self.slug

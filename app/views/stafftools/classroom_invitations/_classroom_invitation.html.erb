@@ -1,0 +1,16 @@
+<dt>
+  <label for="confirm_repository_name">Give this link to your students</label>
+  <p class="repo-transfer-tip">
+    This invitation link will last for another <span id="duration_field"><%= time_ago_in_words(classroom_invitation.generated_at + 3.hours) %></span>.
+  </p>
+</dt>
+<dd>
+  <div class="input-group">
+    <%= content_tag :input, '', type: 'text', id: "classroom-invitation-#{classroom_invitation.key}", value: classroom_invitation_url(classroom_invitation), readonly: 'readonly', class: 'form-control' %>
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" data-clipboard-target="<%= "#facebox #classroom-invitation-#{classroom_invitation.key}" %>" class="js-clipboard btn tooltipped tooltipped-s" type="button">
+        <%= octicon('clippy') %>
+      </button>
+    </span>
+  </div>
+</dd>

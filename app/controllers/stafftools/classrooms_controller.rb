@@ -14,6 +14,7 @@ module Stafftools
 
     def create
       @classroom = Classroom.new(new_classroom_params)
+      @classroom.build_classroom_invitation
 
       if @classroom.save
         redirect_to modules_settings_stafftools_classroom_path(@classroom)
@@ -31,7 +32,9 @@ module Stafftools
     end
 
     def get_new_invite_link
-
+      @invitation = @classroom.classroom_invitation
+      @invitation.generate_key
+      @invitation.save
     end
 
     def remove_member

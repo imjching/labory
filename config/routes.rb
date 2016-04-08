@@ -13,6 +13,13 @@ Rails.application.routes.draw do
 
   get  '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 
+  resources :classroom_invitations, path: 'join', only: [:show] do
+    member do
+      patch :accept_invitation
+      get   :successful_invitation, path: :success
+    end
+  end
+
   namespace :stafftools do
     root to: 'resources#index'
 
