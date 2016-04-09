@@ -2,6 +2,7 @@ class ClassroomInvitationsController < ApplicationController
   # layout 'layouts/invitations'
   layout 'layouts/pages'
 
+  before_action :check_link_still_valid
   before_action :check_user_not_previous_acceptee, only: [:show]
 
   def accept_invitation
@@ -40,6 +41,10 @@ class ClassroomInvitationsController < ApplicationController
     @invitation ||= ClassroomInvitation.find_by!(key: params[:id])
   end
   helper_method :invitation
+
+  def check_link_still_valid
+    not_found if invitation.expired?
+  end
 
   def check_user_not_previous_acceptee # or admin
     return unless classroom.users.include?(current_user)
