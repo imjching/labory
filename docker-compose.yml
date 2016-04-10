@@ -15,6 +15,9 @@ web:
     - mailcatcher
   volumes_from:
     - bundle_store
+  log_opt:
+    max-size: "100k" # 100kb
+    max-file: "20" # 20 lines
 
 # Database
 db:
@@ -27,6 +30,7 @@ db:
     - "5432:5432"
   volumes_from:
     - db_store
+  log_driver: none
 
 # Redis
 redis:
@@ -37,6 +41,7 @@ redis:
   volumes_from:
     - redis_store
   #flag: appendonly yes
+  log_driver: none
 
 # Mailcatcher
 mailcatcher:
@@ -45,6 +50,7 @@ mailcatcher:
   ports:
     - "1080:80"
     - "25:25"
+  log_driver: none
 
 # Sidekiq
 sidekiq:
@@ -61,6 +67,7 @@ sidekiq:
     - mailcatcher
   volumes_from:
     - bundle_store
+  log_driver: none
 
 # Data-only container for bundler data
 # docker volume create labory.bundle_store
@@ -70,6 +77,7 @@ bundle_store:
   command: echo 'Data Container for Bundler'
   volumes:
     - labory.bundle_store:/usr/local/bundle
+  log_driver: none
 
 # Data-only container for database data
 # docker volume create labory.db_store
@@ -79,6 +87,7 @@ db_store:
   command: echo 'Data Container for PostgreSQL'
   volumes:
     - labory.db_store:/var/lib/postgresql/data
+  log_driver: none
 
 # Data-only container for redis data
 # docker volume create labory.redis_store
@@ -88,3 +97,4 @@ redis_store:
   command: echo 'Data Container for Redis'
   volumes:
     - labory.redis_store:/data
+  log_driver: none
