@@ -1,0 +1,70 @@
+<div class="classroom-head">
+  <h1>
+    <%= octicon('terminal') %>
+    <%= link_to 'Classrooms', dashboard_path %><span class="path-divider">/</span><%= link_to @classroom.title, classroom_path(page: 1), class: 'text-bold' %>
+  </h1>
+</div>
+
+<div class="columns">
+  <div class="one-fourth column">
+    <nav class="menu">
+      <!-- <span class="menu-heading">Weeks</span> -->
+      <% for i in 1..(@courses_count / 5.0).ceil %>
+        <%= active_link_to "Week #{i}", classroom_path(page: i), class: 'menu-item', class_active: 'selected' %>
+      <% end %>
+    </nav>
+  </div>
+  <div class="three-fourths column">
+
+    <div class="tabnav">
+      <nav class="tabnav-tabs">
+        <% @classrooms_courses.each_with_index do |classrooms_course, index| %>
+          <a class="tabnav-tab<%= index == 0 ? " selected" : nil %>" href="<%= "#day-#{index + 1}" %>" data-toggle="tab">
+            Day <%= index + 1 %>
+          </a>
+        <% end %>
+      </nav>
+    </div>
+
+    <div class="tab-content">
+      <% @classrooms_courses.each_with_index do |classrooms_course, index| %>
+        <div class="tab-pane fade<%= index == 0 ? " selected in" : nil %>" id="<%= "day-#{index + 1}" %>">
+
+          <% if classrooms_course.course.labs.present? %>
+
+            <ul class="table-list table-list-bordered show-labs">
+
+              <% classrooms_course.course.labs.each do |lab| %>
+                <li class="table-list-item">
+                  <div>
+                    <div class="table-list-cell lab-info-cell">
+                      <a href="/stafftools/modules/topic-1"><%= lab.title %></a>
+                    </div>
+
+                    <div class="table-list-cell lab-date-cell">
+                      <p class="lab-info-meta">Completed on 15-Jan-2016</p>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+
+            </ul>
+
+          <% else %>
+            <div class="boxed-group">
+              <div class="boxed-group-inner">
+                <div class="blankslate blankslate-fixed-width">
+                  <h3>We do not have any labs today.</h3>
+                  <p>Please contact your instructor to see if this is a mistake.</p>
+                </div>
+              </div>
+            </div>
+
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @classroom_accesses = current_user.classroom_accesses
 
   end
 

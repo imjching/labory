@@ -5,13 +5,16 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get  '/login',  to: 'sessions#new',     as: 'login'
-  post '/logout', to: 'sessions#destroy', as: 'logout'
+  get  '/login',  to: 'sessions#new',     as: :login
+  post '/logout', to: 'sessions#destroy', as: :logout
 
   match '/auth/:provider/callback', to: 'sessions#create',  via: [:get, :post]
   match '/auth/failure',            to: 'sessions#failure', via: [:get, :post]
 
-  get  '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  get  '/dashboard', to: 'pages#dashboard', as: :dashboard
+
+  get '/classrooms/:id/:page', to: 'classrooms#show', as: :classroom
+  # resources :classrooms, only: [:show]
 
   resources :classroom_invitations, path: 'join', only: [:show] do
     member do
