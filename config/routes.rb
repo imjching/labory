@@ -13,8 +13,19 @@ Rails.application.routes.draw do
 
   get  '/dashboard', to: 'pages#dashboard', as: :dashboard
 
-  get '/classrooms/:id/:page', to: 'classrooms#show', as: :classroom
-  # resources :classrooms, only: [:show]
+  resources :classrooms, only: [] do
+    resources :labs, only: [:show] do
+      resources :solutions do #, only: [:create, :update, :destroy]
+        collection do
+          get 'all'
+        end
+      end
+    end
+
+    member do
+      get '/:page', to: 'classrooms#show'
+    end
+  end
 
   resources :classroom_invitations, path: 'join', only: [:show] do
     member do
@@ -35,7 +46,6 @@ Rails.application.routes.draw do
             put :sort
           end
         end
-
       end
 
       resources :classrooms do

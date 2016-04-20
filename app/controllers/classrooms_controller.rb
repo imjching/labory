@@ -5,7 +5,7 @@ class ClassroomsController < ApplicationController
     @courses_count = @classroom.classrooms_courses.rank(:sort_order).where(visible: true).count
     @classrooms_courses = @classroom.classrooms_courses.rank(:sort_order).where(visible: true).includes(course: [:labs]).page(params[:page]).per(5)
 
-    p @classrooms_courses
+    # p @classrooms_courses
     # if @courses.empty?
     #   p "hello"
     # end

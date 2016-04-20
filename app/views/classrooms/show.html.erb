@@ -1,7 +1,7 @@
 <div class="classroom-head">
   <h1>
     <%= octicon('terminal') %>
-    <%= link_to 'Classrooms', dashboard_path %><span class="path-divider">/</span><%= link_to @classroom.title, classroom_path(page: 1), class: 'text-bold' %>
+    <%= link_to 'Classrooms', dashboard_path %><span class="path-divider">/</span><%= link_to @classroom.title, { controller: 'classrooms', action: 'show', page: 1 }, class: 'text-bold' %>
   </h1>
 </div>
 
@@ -10,7 +10,7 @@
     <nav class="menu">
       <!-- <span class="menu-heading">Weeks</span> -->
       <% for i in 1..(@courses_count / 5.0).ceil %>
-        <%= active_link_to "Week #{i}", classroom_path(page: i), class: 'menu-item', class_active: 'selected' %>
+        <%= active_link_to "Week #{i}", { controller: 'classrooms', action: 'show', page: i }, class: 'menu-item', class_active: 'selected' %>
       <% end %>
     </nav>
   </div>
@@ -38,7 +38,7 @@
                 <li class="table-list-item">
                   <div>
                     <div class="table-list-cell lab-info-cell">
-                      <a href="/stafftools/modules/topic-1"><%= lab.title %></a>
+                      <div class="state state-closed">Core</div><%= link_to lab.title, classroom_lab_path(@classroom, lab) %></a>
                     </div>
 
                     <div class="table-list-cell lab-date-cell">

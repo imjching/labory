@@ -1,0 +1,22 @@
+<div class="classroom-head">
+  <h1>
+    <%= octicon('terminal') %>
+    <%= link_to 'Classrooms', dashboard_path %><span class="path-divider">/</span><%= link_to @classroom.title, { controller: 'classrooms', action: 'show', id: @classroom, page: 1 }, class: 'text-bold' %><span class="path-divider">/</span><%= @lab.title %>
+  </h1>
+</div>
+<div class="columns">
+  <div class="one-fourth column">
+<nav class="menu">
+  <%= active_link_to 'Description', classroom_lab_path(id: @lab), class: 'menu-item', class_active: 'selected', active: :exclusive %>
+  <%= active_link_to 'Your Attempts', classroom_lab_solutions_path(lab_id: @lab), class: 'menu-item', class_active: 'selected', active: :exclusive %>
+  <%= active_link_to 'Recent', all_classroom_lab_solutions_path(lab_id: @lab), class: 'menu-item', class_active: 'selected' %>
+</nav>
+</div>
+<div class="three-fourths column">
+
+
+
+
+
+</div>
+</div>

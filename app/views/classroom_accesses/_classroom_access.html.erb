@@ -1,7 +1,7 @@
 <li class="simple public js-collab-repo" data-classroom-id="<%= classroom_access.classroom.id %>">
   <%= octicon('repo') %>
 
-  <%= link_to classroom_path(id: classroom_access.classroom, page: 1) do %>
+  <%= link_to controller: 'classrooms', action: 'show', id: classroom_access.classroom, page: 1 do %>
     <strong class="css-truncate-target"><%= classroom_access.classroom.title %></strong>
   <% end %>
   <div class="fork-flag">
