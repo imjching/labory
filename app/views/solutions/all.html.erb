@@ -6,15 +6,40 @@
 </div>
 <div class="columns">
   <div class="one-fourth column">
-<nav class="menu">
-  <%= active_link_to 'Description', classroom_lab_path(id: @lab), class: 'menu-item', class_active: 'selected', active: :exclusive %>
-  <%= active_link_to 'Your Attempts', classroom_lab_solutions_path(lab_id: @lab), class: 'menu-item', class_active: 'selected', active: :exclusive %>
-  <%= active_link_to 'Recent', all_classroom_lab_solutions_path(lab_id: @lab), class: 'menu-item', class_active: 'selected' %>
-</nav>
-</div>
-<div class="three-fourths column">
+    <nav class="menu">
+      <%= active_link_to 'Description', classroom_lab_path(id: @lab), class: 'menu-item', class_active: 'selected', active: :exclusive %>
+      <%= active_link_to 'Your Attempts', classroom_lab_solutions_path(lab_id: @lab), class: 'menu-item', class_active: 'selected', active: :exclusive %>
+      <%= active_link_to 'Recent', all_classroom_lab_solutions_path(lab_id: @lab), class: 'menu-item', class_active: 'selected' %>
+    </nav>
+  </div>
+  <div class="three-fourths column">
 
+    <ul class="table-list table-list-bordered show-solutions">
+      <li class="table-list-item">
+        <div>
+          <div class="table-list-cell solution-author-cell">
+            <a href="http://github.com/imjching" target="_blank">Jay Ching (imjching)</a>
+          </div>
 
+          <div class="table-list-cell solution-link-cell">
+            <a href="https://gist.github.com/imjching/fc4ffb6dddddec5fe2" target="_blank" class="solution-link-meta">https://gist.github.com/imjching/fc4ffb6dddddec5fe2</a>
+          </div>
+        </div>
+      </li>
 
-</div>
+      <li class="table-list-item">
+        <div>
+          <div class="table-list-cell solution-author-cell">
+            <a href="http://github.com/testing" target="_blank">Testing (testing)</a>
+          </div>
+
+          <div class="table-list-cell solution-link-cell">
+            <a href="https://gist.github.com/testing/asfafdsfs" target="_blank" class="solution-link-meta">https://gist.github.com/testing/asfafdsfs</a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
 </div>

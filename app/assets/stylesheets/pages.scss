@@ -87,6 +87,36 @@
   }
 }
 
+
+.show-solutions {
+
+  .table-list-cell {
+    font-size: 13px;
+  }
+
+  .solution-author-cell {
+    width: 250px;
+    padding-right: 0;
+    padding-left: 15px;
+
+    a:hover {
+      color: #4078c0;
+    }
+  }
+
+  .solution-link-cell {
+    width: 480px;
+    text-align: right;
+  }
+
+  .solution-link-meta {
+    margin-top: 1px;
+    margin-bottom: 2px;
+    font-weight: normal;
+    color: #999;
+  }
+}
+
 .btn-show-hide {
   label {
     cursor: pointer;
