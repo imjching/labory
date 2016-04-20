@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :classrooms, only: [] do
     resources :labs, only: [:show] do
-      resources :solutions do #, only: [:create, :update, :destroy]
+      resources :solutions, only: [:index, :create, :update, :destroy] do
         collection do
           get 'all'
         end

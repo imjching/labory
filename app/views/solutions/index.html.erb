@@ -14,7 +14,38 @@
   </div>
   <div class="three-fourths column">
 
+    <div class="table-list-header table-list-bordered">
+      <%= link_to "#{octicon('plus')}&nbsp;&nbsp;New attempt".html_safe, { controller: 'solutions', action: 'create', lab_id: @lab }, method: :post, class: 'table-list-action btn btn-sm btn-primary', role: 'button' %>
 
+      <div class="table-list-header-toggle left">
+        <h4>Attempts</h4>
+      </div>
+    </div>
+
+    <ul class="table-list table-list-bordered show-attempts">
+      <li class="table-list-item">
+        <div>
+          <div class="table-list-cell attempt-link-cell">
+            <a href="https://gist.github.com/imjching/fc4ffb6dddddec5fe2" target="_blank" class="attempt-link-meta">https://gist.github.com/imjching/fc4ffb6dddddec5fe2</a>
+          </div>
+
+          <div class="table-list-cell attempt-btn-cell">
+            <button type="button" class="btn btn-sm btn-outline"><span class="octicon mr-1 octicon-pin"></span>Mark as solution</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="table-list-item">
+        <div>
+          <div class="table-list-cell attempt-link-cell">
+            <a href="https://gist.github.com/testing/asfafdsfs" target="_blank" class="attempt-link-meta">https://gist.github.com/testing/asfafdsfs</a>
+          </div>
+          <div class="table-list-cell attempt-btn-cell">
+            <button type="button" class="btn btn-sm btn-outline disabled">Current solution</button>
+          </div>
+        </div>
+      </li>
+    </ul>
 
   </div>
 </div>

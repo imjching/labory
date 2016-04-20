@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420070101) do
+ActiveRecord::Schema.define(version: 20160420091019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,24 +111,27 @@ ActiveRecord::Schema.define(version: 20160420070101) do
     t.string   "title"
     t.text     "body"
     t.integer  "course_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "sort_order", default: 0, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "sort_order",           default: 0, null: false
+    t.integer  "fork_repo_id"
+    t.integer  "starter_code_repo_id"
   end
 
   add_index "labs", ["course_id"], name: "index_labs_on_course_id", using: :btree
   add_index "labs", ["sort_order"], name: "index_labs_on_sort_order", using: :btree
 
   create_table "solutions", force: :cascade do |t|
-    t.string   "link",                   null: false
     t.integer  "lab_id"
     t.integer  "user_id"
-    t.integer  "status",     default: 0
-    t.integer  "integer",    default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "status",         default: 0
+    t.integer  "integer",        default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "github_repo_id", default: 0, null: false
   end
 
+  add_index "solutions", ["github_repo_id"], name: "index_solutions_on_github_repo_id", unique: true, using: :btree
   add_index "solutions", ["lab_id"], name: "index_solutions_on_lab_id", using: :btree
   add_index "solutions", ["user_id"], name: "index_solutions_on_user_id", using: :btree
 

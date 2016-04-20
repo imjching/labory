@@ -1,5 +1,6 @@
 module Stafftools
   class LabsController < StafftoolsController
+    include InitialCode
 
     before_action :set_course
     before_action :set_lab, except: [:new, :create]
@@ -33,8 +34,8 @@ module Stafftools
       params
         .require(:lab)
         .permit(:title, :body)
-        .merge(course: @course)
-        .merge(sort_order_position: :last)
+        .merge(course: @course, sort_order_position: :last)
+        # starter_code_repo_id: get_repository_id(params[:repo_name])
     end
 
     def set_course

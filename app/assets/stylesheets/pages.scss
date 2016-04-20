@@ -117,6 +117,34 @@
   }
 }
 
+.solutions.index .table-list-header {
+  margin-top: 0;
+}
+
+.show-attempts {
+
+  .table-list-cell {
+    font-size: 13px;
+    line-height: 25px;
+  }
+
+  .attempt-link-cell {
+    width: 540px;
+  }
+
+  .attempt-btn-cell {
+    width: 190px;
+    text-align: right;
+  }
+
+  .attempt-link-meta {
+    margin-top: 1px;
+    margin-bottom: 2px;
+    font-weight: normal;
+    color: #999;
+  }
+}
+
 .btn-show-hide {
   label {
     cursor: pointer;
