@@ -97,6 +97,9 @@ module GitHubRepoable
     files = { "Untitled.txt": { content: "Untitled" } }
     if gist_hash.present?
       files = github_user.gist(gist_hash).files.to_h
+
+      # Star the gist...
+      github_user.star_gist(gist_hash)
     end
 
     github_gist = github_user.create_gist({ description: repo_description, files: files })
