@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     GitHubUser.new(github_client, uid).user.to_h.slice(:login, :name)
   end
 
+  def all_user_info
+    GitHubUser.new(github_client, uid).user
+  end
+
   def github_client_scopes
     GitHubUser.new(github_client, uid).client_scopes
   end

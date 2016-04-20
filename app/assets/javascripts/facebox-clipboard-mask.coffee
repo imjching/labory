@@ -20,3 +20,14 @@ $('.classrooms.show').ready ->
         .find('.form-group') # fade the form
           .addClass('loading')
           .end()
+
+    $('#facebox #remove_member_form').submit ->
+
+      $('#facebox')
+        .find('form input[type=submit]') # submit button
+          .attr('value', 'Removing...')
+          .prop('disabled', true)
+          .end()
+        .find('.form-group') # fade the form
+          .addClass('loading')
+          .end()

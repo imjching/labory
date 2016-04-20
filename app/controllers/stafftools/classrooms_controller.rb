@@ -29,6 +29,8 @@ module Stafftools
     end
 
     def show
+      @classroom_accesses = @classroom.classroom_accesses.includes(:user)
+
 
     end
 
@@ -39,7 +41,10 @@ module Stafftools
     end
 
     def remove_member
+      member = User.find_by!(id: params[:user_id])
+      @access = ClassroomAccess.find_by!(classroom_id: @classroom.id, user_id: member.id)
 
+      @access.destroy
     end
 
     def show_modules

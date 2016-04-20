@@ -52,7 +52,7 @@ Rails.application.routes.draw do
         member do
           post '/new_invite_link', to: 'classrooms#get_new_invite_link'
 
-          delete '/members/:user_id', to: 'classrooms#remove_member'
+          delete '/members/:user_id', to: 'classrooms#remove_member', as: :remove_member
 
           #get '/mentors', to: 'classrooms#show_mentors'
           #post '/mentors', to: 'classrooms#add_mentor' # must first invite mentor onto platform through any link

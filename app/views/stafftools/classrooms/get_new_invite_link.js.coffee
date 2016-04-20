@@ -28,5 +28,5 @@ ready = (container) ->
 ready($('#facebox'))
 ready($('#invite_members'))
 <% else %>
-$.facebox({ div: '#bad_request' });
+$.facebox({ div: '#bad_request' })
 <% end %>

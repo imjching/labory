@@ -2,9 +2,9 @@
   <label for="confirm_repository_name">Give this link to your students</label>
   <p id="expire_message" class="repo-transfer-tip">
     <% if classroom_invitation.expired? %>
-    This invitation link has already expired.
+      This invitation link has already expired.
     <% else %>
-    This invitation link will expire in <%= time_ago_in_words(classroom_invitation.expired_at) %>.
+      This invitation link will expire in <%= time_ago_in_words(classroom_invitation.expired_at) %>.
     <% end %>
   </p>
 </dt>
