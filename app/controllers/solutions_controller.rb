@@ -7,7 +7,7 @@ class SolutionsController < ApplicationController
   end
 
   def all
-
+    @solutions = Solution.completed.includes(:user).where(lab_id: @lab.id, classroom_id: @classroom.id)
   end
 
   def update
@@ -15,7 +15,7 @@ class SolutionsController < ApplicationController
 
     # Reset all solutions first
     Solution
-      .where(lab_id: @lab.id, user_id: current_user.id)
+      .where(lab_id: @lab.id, user_id: current_user.id, classroom_id: @classroom.id)
       .update_all(status: Solution.statuses[:attempted])
 
     # Mark current one
@@ -40,7 +40,7 @@ class SolutionsController < ApplicationController
   private
 
   def new_solution_params
-    { lab_id: @lab.id, user_id: current_user.id }
+    { lab_id: @lab.id, user_id: current_user.id, classroom_id: @classroom.id }
   end
 
   def init_lab

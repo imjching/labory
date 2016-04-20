@@ -14,32 +14,45 @@
   </div>
   <div class="three-fourths column">
 
-    <ul class="table-list table-list-bordered show-solutions">
-      <li class="table-list-item">
-        <div>
-          <div class="table-list-cell solution-author-cell">
-            <a href="http://github.com/imjching" target="_blank">Jay Ching (imjching)</a>
-          </div>
+    <% if @solutions.present? %>
 
-          <div class="table-list-cell solution-link-cell">
-            <a href="https://gist.github.com/imjching/fc4ffb6dddddec5fe2" target="_blank" class="solution-link-meta">https://gist.github.com/imjching/fc4ffb6dddddec5fe2</a>
+      <ul class="table-list table-list-bordered show-solutions">
+
+        <% @solutions.each do |solution| %>
+          <li class="table-list-item">
+            <div>
+              <div class="table-list-cell solution-author-cell">
+                <% info = solution.user.user_info %>
+                <%= link_to (info[:name] ? "#{info[:name]} (#{info[:login]})" : info[:login]), "https://github.com/#{solution.user.user_info[:login]}", target: '_blank' %>
+              </div>
+
+              <div class="table-list-cell solution-link-cell">
+                <% if solution.github_repo_id.present? && solution.github_repo_id > 0 %>
+                  <%= link_to solution.html_url, solution.html_url, target: '_blank', class: 'solution-link-meta' %>
+                <% elsif solution.github_gist_hash.present? %>
+                  <%= link_to solution.html_url, solution.html_url, target: '_blank', class: 'solution-link-meta' %>
+                <% else %>
+                  <span class="solution-link-meta">-</span>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+
+      </ul>
+
+    <% else %>
+
+      <div class="boxed-group">
+        <div class="boxed-group-inner">
+          <div class="blankslate blankslate-fixed-width">
+            <h3>There are currently no solutions submitted yet.</h3>
+            <p>Be the first one!</p>
           </div>
         </div>
-      </li>
+      </div>
 
-      <li class="table-list-item">
-        <div>
-          <div class="table-list-cell solution-author-cell">
-            <a href="http://github.com/testing" target="_blank">Testing (testing)</a>
-          </div>
-
-          <div class="table-list-cell solution-link-cell">
-            <a href="https://gist.github.com/testing/asfafdsfs" target="_blank" class="solution-link-meta">https://gist.github.com/testing/asfafdsfs</a>
-          </div>
-        </div>
-      </li>
-
-    </ul>
+    <% end %>
 
   </div>
 </div>

@@ -6,6 +6,7 @@ class Solution < ActiveRecord::Base
 
   belongs_to :lab
   belongs_to :user
+  belongs_to :classroom
 
   enum status: [ :attempted, :completed ] #lowest level first
 
@@ -37,6 +38,7 @@ class Solution < ActiveRecord::Base
 
   def fork_repo_id
     lab.fork_repo_id
+    # 34972025
   end
 
   def starter_code_repo_id

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420115815) do
+ActiveRecord::Schema.define(version: 20160420144646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,8 +131,10 @@ ActiveRecord::Schema.define(version: 20160420115815) do
     t.datetime "updated_at",                   null: false
     t.integer  "github_repo_id"
     t.string   "github_gist_hash"
+    t.integer  "classroom_id"
   end
 
+  add_index "solutions", ["classroom_id"], name: "index_solutions_on_classroom_id", using: :btree
   add_index "solutions", ["github_gist_hash"], name: "index_solutions_on_github_gist_hash", using: :btree
   add_index "solutions", ["github_repo_id"], name: "index_solutions_on_github_repo_id", using: :btree
   add_index "solutions", ["lab_id"], name: "index_solutions_on_lab_id", using: :btree

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :classroom_accesses, dependent: :destroy
   has_many :classrooms, through: :classroom_accesses
 
-  has_many :solutions
+  has_many :solutions, dependent: :destroy
 
   validates :token, presence: true, uniqueness: true
 
@@ -37,12 +37,16 @@ class User < ActiveRecord::Base
     @github_client ||= Octokit::Client.new(access_token: token, auto_paginate: true)
   end
 
+  def user_info
+    GitHubUser.new(github_client, uid).user.to_h.slice(:login, :name)
+  end
+
   def github_client_scopes
     GitHubUser.new(github_client, uid).client_scopes
   end
 
   def staff?
-    GitHubUser.new(github_client, uid).user.login == 'imjching'
+    GitHubUser.new(github_client, uid).login == 'imjching'
     #site_admin
     # true
   end

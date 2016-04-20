@@ -22,6 +22,10 @@ module GitHubRepoable
     github_user.delete_repository(github_repo_id)
   end
 
+  def destroy_github_gist
+    github_user.delete_gist(github_gist_hash)
+  end
+
   def delete_github_repository_on_failure
     yield
   rescue GitHub::Error
@@ -30,7 +34,12 @@ module GitHubRepoable
   end
 
   def silently_destroy_github_repository
-    destroy_github_repository
+    if github_gist_hash.present?
+      destroy_github_gist
+    else
+      destroy_github_repository
+    end
+    # destroy_github_repository
     true # Destroy ActiveRecord object even if we fail to delete the repository
   end
 

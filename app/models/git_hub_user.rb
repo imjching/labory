@@ -95,6 +95,10 @@ class GitHubUser
     with_error_handling { @client.create_gist(gist_options) }
   end
 
+  def delete_gist(gist_hash)
+    @client.delete_gist(gist_hash)
+  end
+
   # Public
   #
   def login(options = {})

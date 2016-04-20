@@ -7,6 +7,8 @@ class Classroom < ActiveRecord::Base
   has_many :classrooms_courses, dependent: :destroy
   has_many :courses, through: :classrooms_courses
 
+  has_many :solutions, dependent: :destroy
+
   # i think dependent destroy can only be placed on the has many side
 
   # member/admin
