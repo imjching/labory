@@ -12,9 +12,9 @@
   <%= active_link_to 'Recent', all_classroom_lab_solutions_path(lab_id: @lab), class: 'menu-item', class_active: 'selected' %>
 </nav>
 </div>
-<div class="three-fourths column markdown-body">
+<div class="three-fourths column">
 
-
+  <%= markdown(@lab.body) %>
 
 
 
