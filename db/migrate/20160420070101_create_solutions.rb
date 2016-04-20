@@ -4,7 +4,7 @@ class CreateSolutions < ActiveRecord::Migration
       t.string :link, null: false
       t.belongs_to :lab, index: true
       t.belongs_to :user, index: true
-      t.integer :status, :integer, default: 0
+      t.integer :status, default: 0
       t.timestamps null: false
     end
   end
