@@ -6,6 +6,8 @@ class Lab < ActiveRecord::Base
 
   belongs_to :course
 
+  has_many :solutions
+
   validates :title, presence: true
   validates :title, length: { maximum: 60 }
 

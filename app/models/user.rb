@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :classroom_accesses, dependent: :destroy
   has_many :classrooms, through: :classroom_accesses
 
+  has_many :solutions
+
   validates :token, presence: true, uniqueness: true
 
   # todo, check difference between splitting validation and combining both
