@@ -3,13 +3,25 @@ class SolutionsController < ApplicationController
   before_action :init_lab
 
   def index
-
-
+    @solutions = Solution.includes(:user).where(lab_id: @lab.id, user_id: current_user.id)
   end
-
 
   def all
 
+  end
+
+  def update
+    @solution = current_user.solutions.find_by!(id: params[:id])
+
+    # Reset all solutions first
+    Solution
+      .where(lab_id: @lab.id, user_id: current_user.id)
+      .update_all(status: Solution.statuses[:attempted])
+
+    # Mark current one
+    @solution.completed!
+
+    redirect_to classroom_lab_solutions_path(@classroom, @lab)
   end
 
   def create
@@ -17,6 +29,7 @@ class SolutionsController < ApplicationController
     if @solution.save
       flash[:success] = "\"#{@solution.github_repo_id}\" has been created!"
     else
+      # p @solution.errors
       # You can only create one attempt at a time (for a fork)
       # Restart attempt? Or would the flow be better to manually delete -> then create
       flash[:warning] = "Unable to create attempt. Please reach out to an instructor for help."

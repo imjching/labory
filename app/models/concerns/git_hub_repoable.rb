@@ -4,27 +4,24 @@ module GitHubRepoable
   # Options:
   # 1. Create Repo -> Push
   # 2. Fork Repo
-  # TODO
-  # 3. Create Gist -> Push/Update
+  # 3. Create Gist -> Push
   # 4. Fork Gist
-  # To store "github_repo_id" ////"starter_code_repo_id", "fork_repo_id"
+  # 5. Create Empty Gist
+  # To store "github_repo_id"
 
-  # Public
-  #
+  # GitHub Repositories
+  # ===================
+
   def create_github_repository
     repo_description = "#{repo_name} created by Classroom for GitHub"
     github_repository = github_user.create_repository(repo_name, description: repo_description)
     self.github_repo_id = github_repository.id
   end
 
-  # Public
-  #
   def destroy_github_repository
     github_user.delete_repository(github_repo_id)
   end
 
-  # Public
-  #
   def delete_github_repository_on_failure
     yield
   rescue GitHub::Error
@@ -32,16 +29,12 @@ module GitHubRepoable
     raise GitHub::Error, 'Assignment failed to be created'
   end
 
-  # Public
-  #
   def silently_destroy_github_repository
     destroy_github_repository
     true # Destroy ActiveRecord object even if we fail to delete the repository
   end
 
-  # Public
-  #
-  def push_starter_code
+  def push_starter_code_repo
     return true unless starter_code_repo_id # only used for push
 
     lab_repository          = GitHubRepository.new(user.github_client, github_repo_id)
@@ -55,8 +48,6 @@ module GitHubRepoable
     end
   end
 
-  # Public
-  #
   def fork_github_repository
     return true unless fork_repo_id # only used for fork
 
@@ -67,11 +58,49 @@ module GitHubRepoable
     github_user.star(fork_repo_id)
   end
 
-  # Public
-  #
   def edit_github_repository
     repo_description = "#{repo_name} created by Classroom for GitHub"
     github_user.edit_repository(github_repo_id, { name: repo_name, description: repo_description })
+  end
+
+  def html_url
+    if github_gist_hash.present?
+      GitHubGist.new(user.github_client, github_gist_hash).html_url
+    elsif github_repo_id.present?
+      GitHubRepository.new(user.github_client, github_repo_id).html_url
+    else
+      nil
+    end
+  end
+
+  # GitHub Gists
+  # ============
+
+  def fork_github_gist
+    return true unless fork_gist_hash
+
+    gist = github_user.fork_gist(fork_gist_hash)
+    self.github_gist_hash = gist.id
+
+    # Star the gist.....
+    github_user.star_gist(fork_gist_hash)
+  end
+
+  def edit_github_gist
+    repo_description = "#{repo_name} created by Classroom for GitHub"
+    github_user.edit_gist(github_gist_hash, { description: repo_description })
+  end
+
+  def create_github_gist(gist_hash = nil)
+    repo_description = "#{repo_name} created by Classroom for GitHub"
+
+    files = { "Untitled.txt": { content: "Untitled" } }
+    if gist_hash.present?
+      files = github_user.gist(gist_hash).files.to_h
+    end
+
+    github_gist = github_user.create_gist({ description: repo_description, files: files })
+    self.github_gist_hash = github_gist.id
   end
 
   # Internal

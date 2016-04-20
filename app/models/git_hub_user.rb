@@ -67,6 +67,36 @@ class GitHubUser
 
   # Public
   #
+  def fork_gist(gist_hash)
+    with_error_handling { @client.fork_gist(gist_hash) }
+  end
+
+  # Public
+  #
+  def edit_gist(gist_hash, users_gist_options = {})
+    gist_options = github_gist_default_options.merge(users_gist_options)
+
+    with_error_handling { @client.edit_gist(gist_hash, gist_options) }
+  end
+
+  # Public
+  #
+  def star_gist(gist_hash)
+    with_error_handling { @client.star_gist(gist_hash) }
+  end
+
+  def gist(gist_hash)
+    with_error_handling { @client.gist(gist_hash) }
+  end
+
+  def create_gist(users_gist_options = {})
+    gist_options = github_gist_default_options.merge(users_gist_options)
+
+    with_error_handling { @client.create_gist(gist_options) }
+  end
+
+  # Public
+  #
   def login(options = {})
     with_error_handling { @client.user(@id, options).login }
   end
@@ -86,6 +116,12 @@ class GitHubUser
       has_issues:    true,
       has_wiki:      true,
       has_downloads: true,
+    }
+  end
+
+  def github_gist_default_options
+    {
+      public: false
     }
   end
 

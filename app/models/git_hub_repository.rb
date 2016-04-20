@@ -16,6 +16,12 @@ class GitHubRepository
 
   # Public
   #
+  def html_url
+    with_error_handling { @client.repository(@id).html_url }
+  end
+
+  # Public
+  #
   def get_starter_code_from(source)
     with_error_handling do
       credentials = { vcs_username: @client.login, vcs_password: @client.access_token }

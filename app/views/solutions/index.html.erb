@@ -22,30 +22,52 @@
       </div>
     </div>
 
-    <ul class="table-list table-list-bordered show-attempts">
-      <li class="table-list-item">
-        <div>
-          <div class="table-list-cell attempt-link-cell">
-            <a href="https://gist.github.com/imjching/fc4ffb6dddddec5fe2" target="_blank" class="attempt-link-meta">https://gist.github.com/imjching/fc4ffb6dddddec5fe2</a>
-          </div>
+    <% if @solutions.present? %>
 
-          <div class="table-list-cell attempt-btn-cell">
-            <button type="button" class="btn btn-sm btn-outline"><span class="octicon mr-1 octicon-pin"></span>Mark as solution</button>
+      <ul class="table-list table-list-bordered show-attempts">
+
+        <% @solutions.each do |solution| %>
+           <li class="table-list-item">
+            <div>
+              <div class="table-list-cell attempt-link-cell">
+                <% if solution.github_repo_id.present? && solution.github_repo_id > 0 %>
+                  <%= link_to solution.html_url, solution.html_url, target: '_blank', class: 'attempt-link-meta' %>
+                <% elsif solution.github_gist_hash.present? %>
+                  <%= link_to solution.html_url, solution.html_url, target: '_blank', class: 'attempt-link-meta' %>
+                <% else %>
+                <span class="attempt-link-meta">-</span>
+
+
+                <% end %>
+              </div>
+
+              <div class="table-list-cell attempt-btn-cell">
+                <% if solution.completed? %>
+                  <button type="button" class="btn btn-sm btn-outline disabled">Current solution</button>
+                <% else %>
+                  <%= link_to classroom_lab_solution_path(@classroom, @lab, solution), method: 'put', class: 'btn btn-sm btn-outline' do %>
+                    <span class="octicon mr-1 octicon-pin"></span>Mark as solution</a>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+
+      </ul>
+
+    <% else %>
+
+      <div class="boxed-group">
+        <div class="boxed-group-inner">
+          <div class="blankslate blankslate-fixed-width">
+            <h3>You do now have any attempts yet.</h3>
+            <p>Let's create one today!</p>
           </div>
         </div>
-      </li>
+      </div>
 
-      <li class="table-list-item">
-        <div>
-          <div class="table-list-cell attempt-link-cell">
-            <a href="https://gist.github.com/testing/asfafdsfs" target="_blank" class="attempt-link-meta">https://gist.github.com/testing/asfafdsfs</a>
-          </div>
-          <div class="table-list-cell attempt-btn-cell">
-            <button type="button" class="btn btn-sm btn-outline disabled">Current solution</button>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <% end %>
 
   </div>
 </div>
