@@ -14,7 +14,9 @@
       </ul>
     </div>
     <%= render partial: 'shared/pagination', locals: { collection: @courses } %>
+
   <% else %>
+
     <div class="boxed-group-inner">
       <div class="blankslate blankslate-fixed-width">
         <%= mega_octicon('file-text') %>
@@ -26,6 +28,6 @@
         <% end %>
       </div>
     </div>
-  <% end %>
 
+  <% end %>
 </div>
