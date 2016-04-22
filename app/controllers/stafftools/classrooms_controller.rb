@@ -3,6 +3,7 @@ module Stafftools
     layout :resolve_layout
 
     before_action :set_classroom, except: [:index, :new, :create, :edit_modules, :update_modules, :sort_module, :toggle_module]
+    before_action :set_classroom_size, except: [:index, :new, :create]
 
     def index
       @classrooms = current_user.classrooms.page(params[:page])
@@ -30,8 +31,6 @@ module Stafftools
 
     def show
       @classroom_accesses = @classroom.classroom_accesses.includes(:user)
-
-
     end
 
     def get_new_invite_link
@@ -96,6 +95,10 @@ module Stafftools
 
     def set_classroom
       @classroom = current_user.classrooms.find_by!(slug: params[:id])
+    end
+
+    def set_classroom_size
+      @classroom_size = @classroom.classroom_accesses.count
     end
 
     def new_classroom_params

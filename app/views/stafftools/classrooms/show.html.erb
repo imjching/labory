@@ -39,7 +39,7 @@
     <% if @classroom_accesses.empty? %>
       None in the <%= @classroom.title %> class
     <% else %>
-      <%= @classroom_accesses.size %> people in the <%= @classroom.title %> class
+      <span class="class_size"><%= @classroom_size %></span> people in the <%= @classroom.title %> class
     <% end %>
   </span>
 

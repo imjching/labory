@@ -1,7 +1,7 @@
 <div class="tabnav">
   <nav class="tabnav-tabs">
     <%= active_link_to stafftools_classroom_path, class: 'tabnav-tab', class_active: 'selected', active: :exclusive do %>
-      <%= octicon('organization') %>People<span class="counter">10</span>
+      <%= octicon('organization') %>People<span class="counter class_size"><%= @classroom_size %></span>
     <% end %>
     <!--<%#= active_link_to mentors_stafftools_classroom_path, class: 'tabnav-tab', class_active: 'selected' do %>
       <%#= octicon('octoface') %>Mentors<span class="counter">2</span>
