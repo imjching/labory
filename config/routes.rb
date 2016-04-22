@@ -69,8 +69,6 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :labs, only: [:index]
-
     # Admin-only routes
     constraints AdminConstraint.new do
       mount Sidekiq::Web  => '/sidekiq'
