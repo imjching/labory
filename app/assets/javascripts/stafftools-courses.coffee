@@ -1,4 +1,4 @@
-$('.stafftools.courses.new').ready ->
+$('.stafftools.courses.new, .stafftools.courses.edit').ready ->
   $('form').on('change keyup', ->
     $submit_button = $('#course_submit')
 

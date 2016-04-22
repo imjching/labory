@@ -6,6 +6,12 @@ ready = ->
   #   $('.table td').css('width', desired_width)
   $('a[rel*=facebox]').facebox()
 
+  $(document).on('click', '[data-facebox]', ->
+    $.facebox({
+      div: this.getAttribute("data-facebox")
+    }, this.getAttribute("data-facebox-class"))
+  )
+
   $('#sortable').sortable(
     handle: '.handle'
     axis: 'y'

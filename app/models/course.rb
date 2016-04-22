@@ -12,7 +12,7 @@ class Course < ActiveRecord::Base
   has_and_belongs_to_many :users
 
   validates :title, presence: true
-  validates :title, length: { maximum: 60 }
+  validates :title, length: { minimum: 1, maximum: 60 }
 
   validates :slug, uniqueness: true
 

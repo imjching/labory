@@ -30,7 +30,7 @@ class Solution < ActiveRecord::Base
     end
   end
 
-  before_destroy :silently_destroy_github_repository
+  # before_destroy :silently_destroy_github_repository # dangerous
 
   def repo_name
     "#{lab.title.parameterize}-#{SecureRandom.hex(4)}"
