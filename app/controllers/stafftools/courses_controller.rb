@@ -5,7 +5,11 @@ module Stafftools
 
     # To display all modules
     def index
-      @courses = current_user.courses.page(params[:page])
+      @courses = current_user
+                  .courses
+                  .select('courses.*, count(labs.id) AS labs_count')
+                  .joins('LEFT OUTER JOIN labs ON labs.course_id = courses.id').group('courses.id')
+                  .page(params[:page])
     end
 
     # Used to display new_module form
