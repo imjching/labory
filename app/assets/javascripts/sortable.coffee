@@ -12,6 +12,17 @@ ready = ->
     }, this.getAttribute("data-facebox-class"))
   )
 
+  $('#toggle_peek').on 'click', (event) ->
+    wrapper = $('#peek')
+    if wrapper.hasClass 'disabled'
+      wrapper.slideDown 300, ->
+        wrapper.removeClass 'disabled'
+      document.cookie = "peek=true; path=/"
+    else
+      wrapper.slideUp 300, ->
+        wrapper.addClass 'disabled'
+      document.cookie = "peek=false; path=/"
+
   $('#sortable').sortable(
     handle: '.handle'
     axis: 'y'

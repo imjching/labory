@@ -8744,6 +8744,15 @@ h2.ghead::after {
   text-align: center;
 }
 
+.user-nav #toggle_peek:hover {
+  cursor: pointer;
+}
+
+.user-nav .octicon-dashboard {
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
 .user-nav .octicon-sign-out {
   margin-top: 3px;
 }
