@@ -1,5 +1,7 @@
-<!-- Add a link back to module here, breadcrumbs? -->
 <div class="subhead">
+  <%= link_to stafftools_course_path(@course), class: 'right btn btn-sm' do %>
+    Back to module
+  <% end %>
   <h2 class="subhead-heading">Editing lab: <%= @lab.title %></h2>
 </div>
 
