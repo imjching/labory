@@ -15,6 +15,8 @@ gem 'faraday-http-cache' # Faraday middleware that respects HTTP cache
 
 gem 'geo_pattern' # generates geometric background images from a string
 
+gem 'htmlcompressor' # compresses html
+
 gem 'jbuilder' # build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'jquery-turbolinks' # turbolinks with jquery

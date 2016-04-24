@@ -1,1 +1,1 @@
-{ "markdown": "<%=markdown(@data).gsub(/\s+/, " ").gsub(/"/, '\\"').html_safe %>" }
+{ "markdown": "<%= HtmlCompressor::Compressor.new.compress(markdown(@data)).gsub(/(?:\n\r?|\r\n?)/, '<br>').gsub(/"/, '\\"').html_safe %>" }

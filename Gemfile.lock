@@ -116,6 +116,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
+    htmlcompressor (0.3.0)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -340,6 +341,7 @@ DEPENDENCIES
   faraday-http-cache
   foreman
   geo_pattern
+  htmlcompressor
   jbuilder
   jquery-rails
   jquery-turbolinks
