@@ -6823,100 +6823,6 @@ button.discussion-sidebar-toggle {
   border-color: #e5e5e5;
 }
 
-.timeline-comment-wrapper>.timeline-comment::after,.timeline-comment-wrapper>.timeline-comment::before,.timeline-new-comment .timeline-comment::after,.timeline-new-comment .timeline-comment::before {
-  position: absolute;
-  top: 11px;
-  right: 100%;
-  left: -16px;
-  display: block;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  content: " ";
-  border-color: transparent;
-  border-style: solid solid outset;
-}
-
-.timeline-comment-wrapper>.timeline-comment::after,.timeline-new-comment .timeline-comment::after {
-  margin-top: 1px;
-  margin-left: 2px;
-  border-width: 7px;
-  border-right-color: #f7f7f7;
-}
-
-.timeline-comment-wrapper>.timeline-comment::before,.timeline-new-comment .timeline-comment::before {
-  border-width: 8px;
-  border-right-color: #ddd;
-}
-
-.timeline-comment-wrapper {
-  position: relative;
-  padding-left: 64px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  border-top: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-}
-
-.timeline-comment-wrapper:first-child {
-  margin-top: 0;
-}
-
-.discussion-timeline-actions .timeline-comment-wrapper:first-child {
-  margin-top: 15px;
-}
-
-.timeline-comment-wrapper .timeline-comment.current-user::after,.timeline-comment-wrapper .timeline-comment.current-user::before {
-  position: absolute;
-  top: 11px;
-  right: 100%;
-  left: -16px;
-  display: block;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  content: " ";
-  border-color: transparent;
-  border-style: solid solid outset;
-}
-
-.timeline-comment-wrapper .timeline-comment.current-user::after {
-  margin-top: 1px;
-  margin-left: 2px;
-  border-width: 7px;
-  border-right-color: #f2f8fa;
-}
-
-.timeline-comment-wrapper .timeline-comment.current-user::before {
-  border-width: 8px;
-  border-right-color: #bfccd1;
-}
-
-.timeline-comment-wrapper .timeline-comment.unread-item::after,.timeline-comment-wrapper .timeline-comment.unread-item::before {
-  position: absolute;
-  top: 11px;
-  right: 100%;
-  left: -16px;
-  display: block;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  content: " ";
-  border-color: transparent;
-  border-style: solid solid outset;
-}
-
-.timeline-comment-wrapper .timeline-comment.unread-item::after {
-  margin-top: 1px;
-  margin-left: 2px;
-  border-width: 7px;
-  border-right-color: #fff9ea;
-}
-
-.timeline-comment-wrapper .timeline-comment.unread-item::before {
-  border-width: 8px;
-  border-right-color: #dfd8c2;
-}
 
 .timeline-comment-avatar {
   float: left;
@@ -6931,44 +6837,6 @@ button.discussion-sidebar-toggle {
   border-radius: 3px;
 }
 
-.timeline-comment.will-transition-once {
-  -webkit-transition: border-color 0.65s ease-in-out;
-  transition: border-color 0.65s ease-in-out;
-}
-
-.timeline-comment.will-transition-once .timeline-comment-header {
-  -webkit-transition: background-color 0.65s ease, border-bottom-color 0.65s ease-in-out;
-  transition: background-color 0.65s ease, border-bottom-color 0.65s ease-in-out;
-}
-
-.timeline-comment.will-transition-once .timeline-comment-label {
-  -webkit-transition: border-color 0.65s ease-in-out;
-  transition: border-color 0.65s ease-in-out;
-}
-
-.timeline-comment.will-transition-once::before,.timeline-comment.will-transition-once::after {
-  -webkit-transition: border-right-color 0.65s ease-in-out;
-  transition: border-right-color 0.65s ease-in-out;
-}
-
-.timeline-comment.current-user {
-  border-color: #bfccd1;
-}
-
-.timeline-comment.current-user .timeline-comment-header {
-  background-color: #f2f8fa;
-  border-bottom-color: #dde4e6;
-}
-
-.timeline-comment.current-user .timeline-comment-label {
-  border-color: #bfccd1;
-}
-
-.timeline-comment.current-user .previewable-comment-form .comment-form-head.tabnav {
-  color: #8e9597;
-  background-color: #f2f8fa;
-  border-bottom-color: #e1edf1;
-}
 
 .timeline-comment.unread-item {
   border-color: #dfd8c2;
@@ -7435,8 +7303,8 @@ button.discussion-sidebar-toggle {
 
 .new-discussion-timeline .previewable-comment-form .comment-form-head.tabnav {
   padding: 6px 10px 0;
-  background: #f7f7f7;
-  border-radius: 3px 3px 0 0;
+  // background: #f7f7f7;
+  // border-radius: 3px 3px 0 0;
 }
 
 .new-discussion-timeline .previewable-comment-form .draft-indicator {
@@ -7468,18 +7336,6 @@ button.discussion-sidebar-toggle {
   border-radius: 0;
 }
 
-.new-discussion-timeline .composer .timeline-comment {
-  margin-bottom: 10px;
-}
-
-.new-discussion-timeline .composer .timeline-comment::after {
-  border-right-color: #fff;
-}
-
-.new-discussion-timeline .composer .comment-form-head.tabnav {
-  padding-top: 0;
-  background-color: #fff;
-}
 
 .discussion-timeline-actions {
   background-color: #fff;
