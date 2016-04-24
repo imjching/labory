@@ -1,4 +1,4 @@
-$('.stafftools.labs.new').ready ->
+$('.stafftools.labs.new, .stafftools.labs.show').ready ->
   $('form').on('change keyup', ->
     $submit_button = $('#lab_submit')
 
