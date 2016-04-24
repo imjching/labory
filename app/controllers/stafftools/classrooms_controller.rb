@@ -3,7 +3,7 @@ module Stafftools
     layout :resolve_layout
 
     before_action :set_classroom, except: [:index, :new, :create, :edit_modules, :update_modules, :sort_module, :toggle_module]
-    before_action :set_classroom_size, except: [:index, :new, :create]
+    before_action :set_classroom_size, except: [:index, :new, :create, :edit_modules, :update_modules, :sort_module, :toggle_module]
 
     def index
       @classrooms = current_user.classrooms.page(params[:page])
@@ -52,11 +52,13 @@ module Stafftools
 
     def edit_modules
       @classroom = current_user.classrooms.includes(:courses).find_by!(slug: params[:id])
+      @classroom_size = @classroom.classroom_accesses.count
       @available_courses = current_user.courses
     end
 
     def update_modules
       @classroom = current_user.classrooms.includes(:courses).find_by!(slug: params[:id])
+      @classroom_size = @classroom.classroom_accesses.count
       @available_course_ids = current_user.courses.pluck(:id)
 
       # Check if the input course_ids are in @available_course_ids
