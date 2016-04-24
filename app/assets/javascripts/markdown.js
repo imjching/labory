@@ -22,9 +22,6 @@ $(document).ready(function() {
     e.addClass("selected").attr("aria-selected", true);
   };
 
-
-
-
   var options = {
     callback: function (value) {
       var form = $(this).closest(".js-previewable-comment-form");
@@ -53,10 +50,10 @@ $(document).ready(function() {
     wait: 500,
     highlight: true,
     allowSubmit: false,
-    captureLength: 2
+    captureLength: 1
   };
 
-  $(".js-write-bucket textarea").typeWatch( options );
+  $(".js-write-bucket textarea").typeWatch(options);
 
 
   $(document).on("click", ".js-write-tab", function(e) {
