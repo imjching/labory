@@ -22,6 +22,43 @@ $(document).ready(function() {
     e.addClass("selected").attr("aria-selected", true);
   };
 
+
+
+
+  var options = {
+    callback: function (value) {
+      var form = $(this).closest(".js-previewable-comment-form");
+      var comment = form.find('.js-comment-field');
+      var preview = form.find('.comment-body');
+
+      if (comment.val().trim() === "") {
+        preview.html('<p>Nothing to preview</p>');
+      } else {
+        preview.html('<p>Loading preview&hellip;</p>');
+        $.ajax({
+          type: 'POST',
+          url: form.data('preview-url'),
+          dataType: 'json',
+          data: {
+            text: comment.val()
+          }
+        }).done(function(data) {
+          preview.html(data.markdown);
+        }).fail(function(data) {
+          preview.html('<p>Failed to load preview</p>');
+        });
+      }
+      // console.log('TypeWatch callback: (' + (this.type || this.nodeName) + ') ' + value);
+    },
+    wait: 500,
+    highlight: true,
+    allowSubmit: false,
+    captureLength: 2
+  };
+
+  $(".js-write-bucket textarea").typeWatch( options );
+
+
   $(document).on("click", ".js-write-tab", function(e) {
     toggleTab($(this));
     $(".js-comment-field").focus();

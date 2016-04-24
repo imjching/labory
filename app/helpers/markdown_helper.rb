@@ -20,7 +20,7 @@ module MarkdownHelper
       autolink: true,
       disable_indented_code_blocks: true,
       strikethrough: true,
-      space_after_headers: true,
+      #space_after_headers: true,
       superscript: true,
     }
 

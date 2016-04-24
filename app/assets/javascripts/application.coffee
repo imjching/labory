@@ -21,6 +21,7 @@
 #= require local_time
 #
 #= require jquery-readyselector/jquery.readyselector
+#= require jquery-typewatch/jquery.typewatch
 #
 #= require remodal/dist/remodal
 #

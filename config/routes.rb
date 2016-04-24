@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
     get '/test', to: 'resources#test'
 
+    post '/preview', to: 'resources#markdown_preview'
+
     scope path_names: { edit: 'settings' } do
       resources :courses, path: 'modules' do
         resources :labs do

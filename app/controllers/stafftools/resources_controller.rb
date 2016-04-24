@@ -7,5 +7,9 @@ module Stafftools
 
     def test
     end
+
+    def markdown_preview
+      @data = params[:text]
+    end
   end
 end
