@@ -15,29 +15,44 @@
   </div>
 </div>
 
-<ul class="table-list table-list-bordered application-authorizations" id="sortable">
-  <% @labs.each do |lab| %>
-    <li data-sort-url=<%= sort_stafftools_course_lab_path(@course, lab.id) %> class="table-list-item">
-      <div>
+<% if @labs.present? %>
 
-        <div class="table-list-cell oauth-logo-cell handle">
-          ::::::::
+  <ul class="table-list table-list-bordered application-authorizations" id="sortable">
+    <% @labs.each do |lab| %>
+      <li data-sort-url=<%= sort_stafftools_course_lab_path(@course, lab.id) %> class="table-list-item">
+        <div>
+
+          <div class="table-list-cell oauth-logo-cell handle">
+            ::::::::
+          </div>
+
+          <div class="table-list-cell oauth-info-cell">
+            <%= link_to lab.title, stafftools_course_lab_path(@course, lab), class: 'oauth-app-access-name' %>
+            <p class="oauth-app-list-meta">
+              Last updated in <%= time_ago_in_words(lab.updated_at) %>
+              <%# 'Created by <a href="https://github.com/imjching" class="oauth-app-owner">imjching</a>' %>
+            </p>
+          </div>
+
+          <div class="table-list-cell oauth-view-revoke-cell">
+            <a href="#delete_lab_<%= lab.id %>" class="btn btn-sm btn-danger" rel="facebox">Delete</a>
+            <%= render partial: 'stafftools/courses/delete_lab_modal', locals: { lab: lab } %>
+          </div>
+
         </div>
+      </li>
+    <% end %>
+  </ul>
 
-        <div class="table-list-cell oauth-info-cell">
-          <%= link_to lab.title, stafftools_course_lab_path(@course, lab), class: 'oauth-app-access-name' %>
-          <p class="oauth-app-list-meta">
-            Last updated in <%= time_ago_in_words(lab.updated_at) %>
-            <%# 'Created by <a href="https://github.com/imjching" class="oauth-app-owner">imjching</a>' %>
-          </p>
-        </div>
+<% else %>
 
-        <div class="table-list-cell oauth-view-revoke-cell">
-          <a href="#delete_lab_<%= lab.id %>" class="btn btn-sm btn-danger" rel="facebox">Delete</a>
-          <%= render partial: 'stafftools/courses/delete_lab_modal', locals: { lab: lab } %>
-        </div>
-
+  <div class="boxed-group">
+    <div class="boxed-group-inner">
+      <div class="blankslate blankslate-fixed-width">
+        <h3>This module does not have any labs yet.</h3>
+        <p>Let's create one today!</p>
       </div>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+
+<% end %>
