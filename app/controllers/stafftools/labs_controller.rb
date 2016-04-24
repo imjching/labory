@@ -38,6 +38,14 @@ module Stafftools
       render nothing: true
     end
 
+    # [DELETE]
+    def destroy
+      @lab.destroy
+      flash[:success] = "Successfully deleted the lab \"#{@lab.title}\""
+
+      redirect_to stafftools_course_path(@course)
+    end
+
     private
 
     def new_lab_params
