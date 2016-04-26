@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
   end
 
   def staff?
-    GitHubUser.new(github_client, uid).login == 'imjching'
+    ['imjching', 'cherhan'].include? GitHubUser.new(github_client, uid).login
     #site_admin
     # true
   end
