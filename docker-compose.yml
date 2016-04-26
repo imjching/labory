@@ -1,7 +1,9 @@
 # Main application
 web:
   container_name: labory.web
-  build: .
+  build:
+    context: .
+    dockerfile: Dockerfile.dev
   command: bash ./start.sh
   volumes:
     - .:/app
