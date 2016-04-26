@@ -1,9 +1,8 @@
 # Main application
 web:
   container_name: labory.web
-  build:
-    context: .
-    dockerfile: Dockerfile.dev
+  build: .
+  dockerfile: Dockerfile.dev
   command: bash ./start.sh
   volumes:
     - .:/app
@@ -58,7 +57,7 @@ mailcatcher:
 sidekiq:
   container_name: labory.sidekiq
   build: .
-  command: bundle exec sidekiq -C ./config/sidekiq.yml
+  command: bundle exec sidekiq -C ./config/sidekiq-dev.yml
   volumes:
     - .:/app
   env_file:
