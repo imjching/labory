@@ -42,7 +42,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -56,6 +56,10 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store, ENV["MEMCACHED_URL"], { namespace: 'LABORY',
+                                                             expires_in: (ENV["REQUEST_CACHE_TIMEOUT"] || 30).to_i.minutes,
+                                                             compress: true,
+                                                             pool_size: 5 }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
@@ -76,4 +80,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Dalli configuration for Peek
+  config.peek.adapter = :memcache, {
+    client: Dalli::Client.new(ENV["MEMCACHED_URL"]),
+  }
 end
