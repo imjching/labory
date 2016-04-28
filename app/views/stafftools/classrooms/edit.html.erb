@@ -1,19 +1,25 @@
-<div class="subhead">
-  <h2 class="subhead-heading">Module Settings for <%#= @course.title %></h2>
-</div>
+
+<div class="columns">
+  <div class="column">
+  <div class="subhead">
+    <h2 class="subhead-heading">Module Settings for <%#= @course.title %></h2>
+  </div>
 
 
-<hr>
+  <hr>
 
-<div class="boxed-group dangerzone">
-  <h3>Danger Zone</h3>
+  <div class="boxed-group dangerzone">
+    <h3>Danger Zone</h3>
 
-  <div class="boxed-group-inner">
-    <button type="button" data-facebox="#delete_module_confirm" data-facebox-class="dangerzone" class="btn btn-danger boxed-action">Delete this repository</button>
+    <div class="boxed-group-inner">
+      <button type="button" data-facebox="#delete_module_confirm" data-facebox-class="dangerzone" class="btn btn-danger boxed-action">Delete this repository</button>
 
-    <h4>Delete this module</h4>
-    <p>Once you delete this module, there is no going back. Please be certain.</p>
+      <h4>Delete this module</h4>
+      <p>Once you delete this module, there is no going back. Please be certain.</p>
 
-    <%#= render partial: 'stafftools/courses/delete_module_modal' %>
+      <%#= render partial: 'stafftools/courses/delete_module_modal' %>
+    </div>
+  </div>
+
   </div>
 </div>
