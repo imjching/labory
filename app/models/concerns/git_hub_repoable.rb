@@ -13,7 +13,7 @@ module GitHubRepoable
   # ===================
 
   def create_github_repository
-    repo_description = "#{repo_name} created by Classroom for GitHub"
+    repo_description = "#{repo_name} created by Labory"
     github_repository = github_user.create_repository(repo_name, description: repo_description)
     self.github_repo_id = github_repository.id
   end
@@ -68,7 +68,7 @@ module GitHubRepoable
   end
 
   def edit_github_repository
-    repo_description = "#{repo_name} created by Classroom for GitHub"
+    repo_description = "#{repo_name} created by Labory"
     github_user.edit_repository(github_repo_id, { name: repo_name, description: repo_description })
   end
 
@@ -96,12 +96,12 @@ module GitHubRepoable
   end
 
   def edit_github_gist
-    repo_description = "#{repo_name} created by Classroom for GitHub"
+    repo_description = "#{repo_name} created by Labory"
     github_user.edit_gist(github_gist_hash, { description: repo_description })
   end
 
   def create_github_gist(gist_hash = nil)
-    repo_description = "#{repo_name} created by Classroom for GitHub"
+    repo_description = "#{repo_name} created by Labory"
 
     files = { "Untitled.txt": { content: "Untitled" } }
     if gist_hash.present?
